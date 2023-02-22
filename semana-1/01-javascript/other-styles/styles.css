@@ -1,0 +1,97 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: system-ui;
+}
+
+body {
+  background-color: rgb(215, 240, 247);
+}
+
+#top {
+  display: flex;
+  background-color: #6d7e96;
+  text-align: left;
+}
+
+h1 {
+  margin: 8px 0 0 0;
+  padding: 0 0 0 15px;
+  color: rgb(231, 231, 238);
+}
+
+p {
+  text-align: justify;
+}
+
+.container {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+
+.contenido {
+  width: 100%;
+  display: flex;
+  text-align: left;
+  flex-direction: row;
+  text-align: left;
+}
+
+.list-cursos {
+  width: 60%;
+  padding: 5px;
+}
+
+/* ul {
+  padding-left: 20px;
+} */
+
+.pacman {
+  width: 30%;
+  padding: 5px;
+}
+
+.pac {
+  width: 50px;
+  margin: 5px;
+  border-bottom: 50px solid yellow;
+  border-top: 50px solid yellow;
+  border-left: 50px solid yellow;
+  border-right: 50px solid transparent;
+  border-radius: 50%;
+}
+
+footer {
+  background-color: #05234d;
+  margin-top: 5px;
+  padding: 1em;
+  position: fixed;
+
+  width: 100%;
+  font-size: 18px;
+  color: beige;
+  bottom: 0;
+  text-align: center;
+  line-height: 20px;
+}
+
+@media (max-width: 600px) {
+  #top {
+    background-color: crimson;
+  }
+
+  .pac {
+    width: 70px;
+    margin: 5px;
+    border-bottom: 70px solid rgb(0, 51, 255);
+    border-top: 70px solid rgb(0, 51, 255);
+    border-left: 70px solid rgb(0, 51, 255);
+    border-right: 70px solid transparent;
+    border-radius: 50%;
+  }
+}

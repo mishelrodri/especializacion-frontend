@@ -1,0 +1,11 @@
+$primary: rgb(215, 240, 247);
+$secondary: #18122b !default;
+$tono_azul: #393053;
+$tono_azul2: #635985;
+$font1: "Open Sans", sans-serif;
+$selector: ".pacman";
+$propiedad: backgroun-color;
+
+#{$selector} {
+  #{propiedad}: $secondary;
+}
