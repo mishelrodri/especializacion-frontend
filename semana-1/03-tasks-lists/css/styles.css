@@ -32,6 +32,10 @@ thead {
   border: none;
 }
 
+tr {
+  position: relative;
+}
+
 .tareas {
   /* margin-top: 100px; */
   border: black 3px solid;
@@ -45,9 +49,9 @@ thead {
   width: 100%;
 }
 
-tr.finalizada td {
+/* tr.finalizada td {
   background-color: darkseagreen;
-}
+} */
 
 .btn {
   padding: 12px 20px;
@@ -62,7 +66,7 @@ tr.finalizada td {
   margin: 8px 0px;
   border: none;
   border-radius: 4px;
-  width: 100%;
+  width: 90%;
 }
 
 .btn-primary {

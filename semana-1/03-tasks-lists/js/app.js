@@ -60,10 +60,13 @@ $tbody.addEventListener('click', (e) => {
         e.target.setAttribute('disabled', true);
         $tr.style.background = '#18122B';
         $tr.style.color = '#fff';
+        $tr.style.borderBottom = '1px solid #fff';
     }
 
+});
 
-
-
+$btnLimpiar.addEventListener('click', () => {
+    $tbody.innerHTML = '';
+    contador = 0;
 });
 
