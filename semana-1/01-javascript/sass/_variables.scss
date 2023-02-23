@@ -1,0 +1,18 @@
+$primary: rgb(215, 240, 247);
+$secundary: black !default;
+$tono_celeste: deepskyblue;
+$tono_gris: #6d7e96;
+$tono_gris_claro: rba(255, 255, 255, 0.934);
+$beige: beige;
+$rojo: crimson;
+$azul_marino: rbg(0, 51, 255);
+$color_footer: #05234d !default;
+//fuentes
+$font1: "Open Sans", sans-serif;
+
+// Interpolación #(variable)
+$selector: ".pacman";
+$propiedad: "background-color";
+#{$selector} {
+  #{$propiedad}: $secundary;
+}

@@ -1,4 +1,4 @@
-@use "variables";
+@use "variables" with($secundary: gray);
 
 * {
   box-sizing: border-box;
@@ -16,14 +16,14 @@ body {
 
 #top {
   display: flex;
-  background-color: variables.$secondary;
+  background-color: variables.$secundary;
   text-align: left;
 }
 
 h1 {
   margin: 8px 0 0 0;
   padding: 0 0 0 15px;
-  color: variables.$tono_azul2;
+  color: variables.$tono_celeste;
 }
 
 p {
@@ -61,15 +61,15 @@ p {
 .pac {
   width: 50px;
   margin: 5px;
-  border-bottom: 50px solid variables.$tono_azul;
-  border-top: 50px solid variables.$tono_azul;
-  border-left: 50px solid variables.$tono_azul;
+  border-bottom: 50px solid variables.$tono_celeste;
+  border-top: 50px solid variables.$tono_celeste;
+  border-left: 50px solid variables.$tono_celeste;
   border-right: 50px solid transparent;
   border-radius: 50%;
 }
 
 footer {
-  background-color: variables.$secondary;
+  background-color: variables.$secundary;
   margin-top: 5px;
   padding: 1em;
   position: fixed;
@@ -84,15 +84,15 @@ footer {
 
 @media (max-width: 600px) {
   #top {
-    background-color: crimson;
+    background-color: variables.$rojo;
   }
 
   .pac {
     width: 70px;
     margin: 5px;
-    border-bottom: 70px solid variables.$tono_azul2;
-    border-top: 70px solid variables.$tono_azul2;
-    border-left: 70px solid variables.$tono_azul2;
+    border-bottom: 70px solid variables.$tono_celeste;
+    border-top: 70px solid variables.$tono_celeste;
+    border-left: 70px solid variables.$tono_celeste;
     border-right: 70px solid transparent;
     border-radius: 50%;
   }

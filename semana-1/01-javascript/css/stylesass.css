@@ -1,5 +1,5 @@
 .pacman {
-  propiedad: #18122b;
+  background-color: gray;
 }
 
 * {
@@ -18,14 +18,14 @@ body {
 
 #top {
   display: flex;
-  background-color: #18122b;
+  background-color: gray;
   text-align: left;
 }
 
 h1 {
   margin: 8px 0 0 0;
   padding: 0 0 0 15px;
-  color: #635985;
+  color: deepskyblue;
 }
 
 p {
@@ -62,15 +62,15 @@ p {
 .pac {
   width: 50px;
   margin: 5px;
-  border-bottom: 50px solid #393053;
-  border-top: 50px solid #393053;
-  border-left: 50px solid #393053;
+  border-bottom: 50px solid deepskyblue;
+  border-top: 50px solid deepskyblue;
+  border-left: 50px solid deepskyblue;
   border-right: 50px solid transparent;
   border-radius: 50%;
 }
 
 footer {
-  background-color: #18122b;
+  background-color: gray;
   margin-top: 5px;
   padding: 1em;
   position: fixed;
@@ -89,9 +89,9 @@ footer {
   .pac {
     width: 70px;
     margin: 5px;
-    border-bottom: 70px solid #635985;
-    border-top: 70px solid #635985;
-    border-left: 70px solid #635985;
+    border-bottom: 70px solid deepskyblue;
+    border-top: 70px solid deepskyblue;
+    border-left: 70px solid deepskyblue;
     border-right: 70px solid transparent;
     border-radius: 50%;
   }
