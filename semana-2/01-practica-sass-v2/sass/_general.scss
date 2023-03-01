@@ -1,0 +1,71 @@
+@use "mixfun";
+
+.general {
+  min-height: 100vh;
+  background-color: var(--violet);
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background-image: url("../images/bg-mobile.svg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    z-index: 0;
+
+    @include mixfun.media {
+      background-image: url("../images/bg-desktop.svg");
+      height: 100%;
+    }
+  }
+
+  &_img {
+    width: 100%;
+    display: block;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  &_container {
+    @include mixfun.container;
+    position: relative;
+    z-index: 10;
+
+    display: grid;
+    gap: mixfun.pixeles-rem(50);
+    text-align: center;
+    @include mixfun.media {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      text-align: start;
+    }
+  }
+
+  &_texts {
+    color: #fff;
+  }
+
+  &_title {
+    font-family: var(--font-headings);
+    font-size: mixfun.pixeles-rem(28);
+  }
+
+  &_paragraph {
+    font-family: var(--font-headings);
+    line-height: 1.5;
+    margin: 1.2rem 0;
+  }
+
+  &_cta {
+    display: inline-block;
+    color: var(--violet);
+    background-color: #fff;
+    padding: 15px 75px;
+    text-decoration: none;
+    border-radius: 30px;
+  }
+}

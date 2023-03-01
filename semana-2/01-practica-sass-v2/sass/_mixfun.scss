@@ -1,0 +1,24 @@
+@use "sass:math";
+
+@mixin container($padding: 40px 0) {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: $padding;
+}
+
+// fuuncion que convierte pixeles a rem
+/* Unidades rem : FUNCIONAN IGUAL QUELAS UNIDADES EM, excepto
+que 1REM equivale al tamaño tipo de letra establecido en el elemento raíz del documento */
+
+@function pixeles-rem($pixeles) {
+  $resultado: math.div($pixeles, 16) * 1rem;
+  @return $resultado;
+}
+
+@mixin media {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
