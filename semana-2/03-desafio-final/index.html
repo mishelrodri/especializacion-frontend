@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital@1&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Aleatorio</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <br />
+      <hr />
+      <!-- posición de fila], justificar el contenido-->
+      <div class="row gx-4 justify-content-center">
+        <!-- para el listado utilizar 8 columnas de las 12-->
+        <div class="col-lg-8">
+          <h1>Listado</h1>
+          <input type="text" id="tfEntrada" placeholder="Nombre" />
+          <button id="btnAgregar" class="btn btn-primary btn-sm">
+            Agregar
+          </button>
+          <button id="btnCargar" class="btn btn-dark btn-sm">
+            Cargar datos
+          </button>
+          <button id="btnLimpiar" class="btn btn-success btn-sm">
+            Limpiar
+          </button>
+          <hr />
+          <table id="tblTareas">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Borrar</th>
+              </tr>
+            </thead>
+            <tbody class="tabla"></tbody>
+          </table>
+        </div>
+        <!--  utilizar las 4 columnas para el aleatorio-->
+        <div class="col-lg-4">
+          <br />
+          <h2>Aleatorio</h2>
+
+          <div class="card">
+            <h3><i class="fa-solid fa-trophy fa-4x icono"></i></h3>
+
+            <input
+              type="text"
+              id="tfCantidad"
+              placeholder="Números a generar"
+            />
+            <h3>Ganadores</h3>
+            <div id="valores"></div>
+            <button
+              class="btn btn-primary btn-lg mt-2"
+              id="btnJugar"
+              type="button"
+            >
+              Generar
+            </button>
+            <p id="resultado"></p>
+            <span class="error hidden"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer><p>Práctica Js</p></footer>
+    <script type="text/javascript" src="js/app.js"></script>
+  </body>
+</html>
