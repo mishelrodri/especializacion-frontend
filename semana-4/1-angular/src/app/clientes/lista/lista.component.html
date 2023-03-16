@@ -1,0 +1,7 @@
+<h1>Clientes</h1>
+<hr />
+<ul>
+  <li *ngFor="let cliente of listaClientes; let i = index">
+    {{ i + 1 }} - {{ cliente.nombre }} -- {{ cliente.telefono }}
+  </li>
+</ul>
