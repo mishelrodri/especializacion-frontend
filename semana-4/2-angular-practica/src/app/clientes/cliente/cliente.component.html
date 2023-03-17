@@ -1,0 +1,28 @@
+<h3>Listado de Clientes</h3>
+<hr />
+<ul>
+  <li *ngFor="let cliente of listaClientes; let i = index">
+    {{ i + 1 }} - {{ cliente.nombre }} -- {{ cliente.telefono }}
+  </li>
+</ul>
+
+<h3>Agregar</h3>
+<div style="width: 50%">
+  <form (submit)="agregar()">
+    <input
+      type="text"
+      placeholder="Nombre"
+      name="nombre"
+      [(ngModel)]="nuevoCliente.nombre"
+    />
+    <input
+      type="text"
+      placeholder="Telefono"
+      name="telefono"
+      [(ngModel)]="nuevoCliente.telefono"
+    />
+    <button>Agrear</button>
+  </form>
+</div>
+
+<!-- <button (click)="agregar()">Agregar</button> -->
