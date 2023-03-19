@@ -21,17 +21,4 @@ export class ClienteComponent {
       telefono: '9747-3455',
     },
   ];
-
-  nuevoCliente: ICliente = {
-    nombre: '',
-    telefono: '',
-  };
-
-  agregar() {
-    this.listaClientes.push(this.nuevoCliente);
-    this.nuevoCliente = {
-      nombre: '',
-      telefono: '',
-    };
-  }
 }
