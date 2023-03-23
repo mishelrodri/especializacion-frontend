@@ -4,10 +4,12 @@ import { ClienteComponent } from './cliente/cliente.component';
 import { FormsModule } from '@angular/forms';
 import { ListaComponent } from './lista/lista.component';
 import { FormularioComponent } from './formulario/formulario.component';
+import { ClienteService } from './services/cliente.service';
 
 @NgModule({
   declarations: [ClienteComponent, ListaComponent, FormularioComponent],
   imports: [CommonModule, FormsModule],
   exports: [ClienteComponent],
+  providers: [ClienteService],
 })
 export class ClientesModule {}

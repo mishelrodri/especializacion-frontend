@@ -1,5 +1,6 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import { ICliente } from '../interfaces/cliente.interface';
+import { ClienteService } from '../services/cliente.service';
 
 @Component({
   selector: 'app-cliente',
@@ -9,20 +10,14 @@ import { ICliente } from '../interfaces/cliente.interface';
 export class ClienteComponent {
   nombre: string = 'Mishel';
   telefono: string = '122334';
-  //constructor() { }
 
-  listaClientes: ICliente[] = [
-    {
-      nombre: 'Armando Paredes',
-      telefono: '7897-9833',
-    },
-    {
-      nombre: 'Amanda Paredes',
-      telefono: '7897-9833',
-    },
-    {
-      nombre: 'Arandano Paredes',
-      telefono: '7897-9833',
-    },
-  ];
+  // listaClientes: ICliente[] = [];
+
+  constructor(private clienteService: ClienteService) {
+    // this.listaClientes = clienteService.listaClientes;
+  }
+
+  get listaClientes(): ICliente[] {
+    return this.clienteService.listaClientes;
+  }
 }
