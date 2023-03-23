@@ -1,0 +1,12 @@
+.new {
+  // background-color: #2a2a2a;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px 0;
+  // border-bottom: 1px solid #fff;
+
+  &_paragraph {
+    color: var(--grayish-blue);
+  }
+}

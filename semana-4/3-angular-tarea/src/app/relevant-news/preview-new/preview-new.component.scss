@@ -1,0 +1,24 @@
+.top_new {
+  display: flex;
+  gap: 20px;
+
+  &__img img {
+    display: block;
+    width: 90px;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .top_new__texts {
+    display: grid;
+    gap: 5px;
+    &__number {
+      font-size: 30px;
+      color: var(--grayish-blue);
+    }
+
+    p {
+      color: var(--dark-grayish-blue);
+    }
+  }
+}

@@ -1,0 +1,158 @@
+.navbar {
+  display: flex;
+  // background-color: red;
+  align-items: center;
+  padding: 15px;
+  padding-top: 30px;
+
+  .img {
+    width: 50px;
+  }
+
+  .menu_mobile_container {
+    transform: translateX(0%);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 70%;
+    // outline: 1px solid #000;
+    background-color: var(--off-white);
+    transition: transform 0.3s ease-in-out;
+    // align-items: flex-start;
+    // justify-content: center;
+
+    .menu_mobile {
+      display: flex;
+      flex-direction: column;
+      margin-top: 100px;
+      gap: 20px;
+
+      &__item {
+        list-style: none;
+      }
+
+      &__link {
+        text-decoration: none;
+        color: var(--very-dark-blue);
+        padding-left: 20px;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .hamburger {
+    width: 50px;
+    height: 40px;
+    // background-color: blue;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .line {
+      display: block;
+      width: 80%;
+      height: 3px;
+      border-radius: 100px;
+      background-color: var(--very-dark-blue);
+      transition: transform 0.3s ease-in-out;
+
+      &-1 {
+        transform: translateY(-6px);
+      }
+
+      &-2 {
+        transform: translateY(3px);
+      }
+
+      &-3 {
+        transform: translateY(12px);
+      }
+    }
+
+    .open.line {
+      display: block;
+      width: 80%;
+      height: 3px;
+      border-radius: 100px;
+      background-color: var(--very-dark-blue);
+      transition: transform 0.3s ease-in-out;
+      &-1 {
+        transform: rotate(45deg);
+      }
+
+      &-2 {
+        display: none;
+      }
+
+      &-3 {
+        transform: translateY(-2px) rotate(135deg);
+      }
+    }
+  }
+
+  .hidden {
+    // display: none;
+    transform: translateX(100%);
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    max-width: 1200px;
+    margin-inline: auto;
+    .menu_mobile_container {
+      display: block;
+      width: unset;
+      flex-direction: column;
+      position: unset;
+      top: unset;
+      right: unset;
+      // background-color: var(--off-white);
+      outline: unset;
+
+      .menu_mobile {
+        display: flex;
+        flex-direction: row;
+        margin-top: unset;
+        gap: 20px;
+
+        &__item {
+          list-style: none;
+        }
+
+        &__link {
+          display: block;
+          text-decoration: none;
+          color: var(--dark-grayish-blue);
+          font-weight: 700;
+          padding-left: unset;
+          padding: 15px;
+          font-size: 16px;
+        }
+
+        &__link:hover {
+          color: var(--grayish-blue);
+        }
+      }
+    }
+
+    .hamburger {
+      display: none;
+    }
+    .hidden {
+      // display: none;
+      transform: translateX(0%);
+    }
+  }
+}
