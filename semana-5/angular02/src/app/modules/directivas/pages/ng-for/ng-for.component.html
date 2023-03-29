@@ -1,1 +1,9 @@
-<p>ng-for works!</p>
+<section class="section-taylor">
+  <h2>Canciones de Taylor Swift</h2>
+
+  <ul>
+    <li *ngFor="let canciones of cancionesTaylorSwift">
+      {{ canciones.titulo }} - {{ canciones.album }}
+    </li>
+  </ul>
+</section>
