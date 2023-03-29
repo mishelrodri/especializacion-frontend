@@ -1,0 +1,11 @@
+<section class="section">
+  <div class="container">
+    <h2>Mangas Interesantes</h2>
+    <!-- <li *ngFor="let manga of mangasList">Name {{ manga.type }}</li> -->
+    <div class="card">
+      <img [src]="mangasList.images.jpg.image_url" alt="image manga" />
+      <strong>{{ mangasList.titles[0].title }}</strong>
+      <a class="anchor" [href]="mangasList.url" target="_blank">Ver Manga</a>
+    </div>
+  </div>
+</section>
