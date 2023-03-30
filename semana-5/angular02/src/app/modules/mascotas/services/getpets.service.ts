@@ -26,4 +26,14 @@ export class GetpetsService {
       return this.http.get<IMascota[]>(`http://localhost:3000/mascotas`);
     }
   }
+
+  buscarMascotaId(termino: string): Observable<IMascota> {
+    return this.http.get<IMascota>(`http://localhost:3000/mascotas/${termino}`);
+  }
+
+  eliminarMascotaId(termino: string): Observable<IMascota> {
+    return this.http.delete<IMascota>(
+      `http://localhost:3000/mascotas/${termino}`
+    );
+  }
 }

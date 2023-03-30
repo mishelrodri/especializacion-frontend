@@ -5,7 +5,7 @@ export interface IMascota {
   img?: string;
   origen: string;
   peso: string;
-  guardian: Guardian;
+  guardian?: Guardian;
   salud: string;
   ejercicio: string;
   nutricion: string;
