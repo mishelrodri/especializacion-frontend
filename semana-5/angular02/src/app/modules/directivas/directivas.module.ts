@@ -7,7 +7,9 @@ import { NgForComponent } from './pages/ng-for/ng-for.component';
 import { NgSwitchComponent } from './pages/ng-switch/ng-switch.component';
 import { NgClassComponent } from './pages/ng-class/ng-class.component';
 import { NgStyleComponent } from './pages/ng-style/ng-style.component';
-
+import { BindingComponent } from './pages/binding/binding.component';
+import { NgModelComponent } from './pages/ng-model/ng-model.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,11 +17,10 @@ import { NgStyleComponent } from './pages/ng-style/ng-style.component';
     NgForComponent,
     NgSwitchComponent,
     NgClassComponent,
-    NgStyleComponent
+    NgStyleComponent,
+    BindingComponent,
+    NgModelComponent,
   ],
-  imports: [
-    CommonModule,
-    DirectivasRoutingModule
-  ]
+  imports: [CommonModule, DirectivasRoutingModule, FormsModule],
 })
-export class DirectivasModule { }
+export class DirectivasModule {}

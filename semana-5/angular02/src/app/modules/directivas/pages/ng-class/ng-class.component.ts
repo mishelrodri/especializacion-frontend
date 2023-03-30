@@ -3,13 +3,16 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-ng-class',
   templateUrl: './ng-class.component.html',
-  styleUrls: ['./ng-class.component.scss']
+  styleUrls: ['./ng-class.component.scss'],
 })
-export class NgClassComponent implements OnInit {
+export class NgClassComponent {
+  tema: string = ' Uso de ngClass';
+  //Usando variable en el ngClass
+  alerta: string = 'alert-danger';
 
-  constructor() { }
+  //  Utilizando ngClass como objetos
+  propiedad = { danger: false };
 
-  ngOnInit(): void {
-  }
-
+  //Usando ngClass condicional
+  message: number = 5;
 }

@@ -14,6 +14,8 @@ import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { SkeletonComponent } from './layout/skeleton/skeleton.component';
 import { AppRoutingModule } from './app-routing.module';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
     HeaderComponent,
     FooterComponent,
     SkeletonComponent,
+    NotfoundComponent,
   ],
   imports: [
     CommonModule,
@@ -29,6 +32,7 @@ import { AppRoutingModule } from './app-routing.module';
     CoreModule,
     SharedModule,
     AppRoutingModule,
+    HttpClientModule,
   ],
   //serviciosss
   providers: [

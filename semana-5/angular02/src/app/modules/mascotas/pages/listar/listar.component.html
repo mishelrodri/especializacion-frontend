@@ -1,0 +1,24 @@
+<div class="d-flex p-2 m-5"></div>
+<div class="container">
+  <p>Listar works</p>
+  <hr />
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Buscar carta"
+    [(ngModel)]="parametrosBuscar"
+    (keyup)="buscar()"
+  />
+
+  <hr />
+
+  <div
+    class="row row-cols-1 row-cols-md-3 row-cols-xl-5 justify-content-center"
+  >
+    <ng-container *ngFor="let obj of mascotas">
+      <app-card [obj]="obj"></app-card>
+    </ng-container>
+  </div>
+  <hr />
+  <br />
+</div>
