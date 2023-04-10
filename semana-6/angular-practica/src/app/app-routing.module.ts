@@ -20,6 +20,13 @@ const routes: Routes = [
             (m) => m.ApiMangasModule
           ),
       },
+      {
+        path: 'taylor',
+        loadChildren: () =>
+          import('src/app/modules/taylor/taylor.module').then(
+            (m) => m.TaylorModule
+          ),
+      },
     ],
   },
 ];

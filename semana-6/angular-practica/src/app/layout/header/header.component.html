@@ -1,9 +1,14 @@
 <nav class="navbar">
-  <h3>LOGO</h3>
+  <img class="navbar__logo" src="assets/images/tayicon.webp" alt="taylo swift logo">
 
-  <ul class="menu">
-    <li><a routerLink="/">Home</a></li>
-    <li><a routerLink="/mangas">Mangas</a></li>
-    <li><a href="#">Taylor</a></li>
+  <div class="hamburger" (click)="openMenu()">
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
+  </div>
+  <ul id="menu" class="menu hidden">
+    <li><a (click)="selectItem()" routerLink="/">Home</a></li>
+    <li><a (click)="selectItem()" routerLink="/mangas">Mangas</a></li>
+    <li><a (click)="selectItem()" routerLink="/taylor">Taylor</a></li>
   </ul>
 </nav>
