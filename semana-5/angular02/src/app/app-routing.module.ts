@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SkeletonComponent } from './layout/skeleton/skeleton.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { API_PETS } from './constants/routes/routes';
 
 const routes: Routes = [
   // Entre llaves definiremos cada una de las rutas de la app
@@ -25,7 +26,7 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'mascotas',
+        path: API_PETS,
         // QUEREMOS QUE ABRA LOS HIJOS
         loadChildren: () =>
           import('@modules/mascotas/mascotas.module').then(

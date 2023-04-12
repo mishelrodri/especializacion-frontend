@@ -4,6 +4,7 @@ import { switchMap } from 'rxjs';
 import Swal from 'sweetalert2';
 import { IMascota } from '../../interface/mascotas.interface';
 import { GetpetsService } from '../../services/getpets.service';
+import { API_PETS } from 'src/app/constants/routes/routes';
 
 @Component({
   selector: 'app-mascota',
@@ -27,11 +28,17 @@ export class MascotaComponent implements OnInit {
       .subscribe((resp: IMascota) => {
         this.mascota = resp;
       });
+    this.buscarFetchId();
   }
-
+  buscarFetchId(): void {
+    const id = this.activateRoute.snapshot.paramMap.get('id');
+    this.mascotaSer.obtenetpetsId(id || '').then(async (resp: any) => {
+      console.log('metodo usando FETCH', resp);
+    });
+  }
   regresar() {
     // para ir a la ruta indicada
-    this.router.navigate(['mascotas/listar']);
+    this.router.navigate([API_PETS + '/listar']);
   }
 
   eliminar() {
