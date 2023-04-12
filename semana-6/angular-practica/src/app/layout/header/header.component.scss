@@ -45,6 +45,24 @@
   a:hover {
     color: #0f0e0e;
   }
+
+  @media only screen and (min-width: 992px) {
+    transform: unset;
+    width: unset;
+    height: unset;
+    background-color: unset;
+    position: unset;
+    flex-direction: row;
+    z-index: unset;
+    li {
+      width: unset;
+    }
+
+    a {
+      padding: unset;
+      border-bottom: unset;
+    }
+  }
 }
 
 /*HAMBURGER*/
@@ -80,8 +98,15 @@
       transform: translate(7px, 2px) rotate(-45deg);
     }
   }
+
+  @media only screen and (min-width: 992px) {
+    display: none;
+  }
 }
 
 .hidden {
   transform: translate(100%);
+  @media only screen and (min-width: 992px) {
+    transform: unset;
+  }
 }
