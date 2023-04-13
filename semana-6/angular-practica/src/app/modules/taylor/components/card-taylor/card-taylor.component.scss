@@ -1,13 +1,16 @@
 .cardTay {
   width: 250px;
+  min-height: 210px;
   background-color: #f4eee0;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 
   &__title {
-    // text-transform: uppercase;
-    // letter-spacing: 5px;
     font-size: 16px;
   }
 
@@ -15,4 +18,8 @@
     display: block;
     width: 100%;
   }
+}
+
+.cardTay:hover {
+  transform: scale(1.1);
 }

@@ -1,1 +1,5 @@
-<p>manga works!</p>
+<main class="container">
+  <ng-container *ngFor="let item of mangas">
+    <app-cardManga  [manga]="item" ></app-cardManga>
+  </ng-container>
+</main>
