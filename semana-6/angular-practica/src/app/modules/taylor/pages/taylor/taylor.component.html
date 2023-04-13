@@ -1,1 +1,11 @@
-<p>taylor works!</p>
+<!-- <ul class="listSongs" *ngFor="let item of taylorSongs">
+  <li>
+    <app-card-taylor [song]="item" ></app-card-taylor>
+  </li>
+</ul> -->
+<div class="listSongs" >
+  <ng-container *ngFor="let item of taylorSongs">
+    <app-card-taylor [song]="item" ></app-card-taylor>
+  </ng-container>
+</div>
+
