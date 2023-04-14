@@ -16,7 +16,10 @@ export class TaylorComponent implements OnInit {
 
   ngOnInit(): void {
     this.taylorService.getAllSongs().subscribe((resp: any) => {
-      this.taylorSongs = resp;
+      const {
+        record: { cancionesTaylorSwift },
+      } = resp;
+      this.taylorSongs = cancionesTaylorSwift;
     });
   }
 }
