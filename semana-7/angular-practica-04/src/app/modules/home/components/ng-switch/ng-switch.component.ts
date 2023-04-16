@@ -8,6 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class NgSwitchComponent implements OnInit {
   pais = 'Francia';
   constructor() {}
+  goku = 1;
+  powerUp() {
+    if (this.goku === 5) return;
+    this.goku++;
+  }
 
+  lowerPower() {
+    if (this.goku === 0) return;
+
+    this.goku--;
+  }
   ngOnInit(): void {}
 }

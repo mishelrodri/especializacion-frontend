@@ -1,0 +1,11 @@
+<div class="container">
+<div>
+  <form (ngSubmit)="agregar()">
+    <input class="input" type="text" name="song" [(ngModel)]="song" placeholder="Ingresa una Canción">
+    <button type="submit">Agregar</button>
+  </form>
+  <ul>
+    <li *ngFor="let item of list">{{item}}</li>
+  </ul>
+</div>
+</div>

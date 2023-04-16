@@ -1,6 +1,23 @@
-<div [ngSwitch]="pais">
+<!-- <div [ngSwitch]="pais">
     <p *ngSwitchCase="'España'">El idioma oficial de España es el español.</p>
     <p *ngSwitchCase="'Francia'">El idioma oficial de Francia es el francés.</p>
     <p *ngSwitchCase="'Italia'">El idioma oficial de Italia es el italiano.</p>
     <p *ngSwitchDefault>Lo siento, no dispongo del idioma oficial de este país.</p>
+  </div> -->
+
+  <div class="container">
+
+    <div class="controls">
+      <button (click)="powerUp()" class="btn">🔥 Power Up</button>
+      <button (click)="lowerPower()" class="btn">☄ Lower Power</button>
+    </div>
+
+    <div class="goku_container" [ngSwitch]="goku">
+      <img *ngSwitchCase="2" src="assets/images/goku2.webp" alt="goku 1">
+      <img *ngSwitchCase="3" src="assets/images/goku3.webp" alt="goku 1">
+      <img *ngSwitchCase="4" src="assets/images/goku4.webp" alt="goku 1">
+      <img *ngSwitchCase="5" src="assets/images/goku5.webp" alt="goku 1">
+      <img *ngSwitchDefault src="assets/images/goku1.webp" alt="goku 1">
+    </div>
+
   </div>

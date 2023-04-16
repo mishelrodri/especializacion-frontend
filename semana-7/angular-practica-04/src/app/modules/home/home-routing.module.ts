@@ -5,6 +5,7 @@ import { NgIfComponent } from './components/ngIf/ngIf.component';
 import { NgForComponent } from './components/ng-for/ng-for.component';
 import { NgSwitchComponent } from './components/ng-switch/ng-switch.component';
 import { NgClassComponent } from './components/ng-class/ng-class.component';
+import { NgBindingComponent } from './components/ngBinding/ngBinding.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,11 @@ const routes: Routes = [
         path: 'ngClass',
         component: NgClassComponent,
         title: 'NgClass',
+      },
+      {
+        path: 'ngBinding',
+        component: NgBindingComponent,
+        title: 'ngBinding',
       },
     ],
   },

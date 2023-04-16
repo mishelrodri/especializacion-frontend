@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  .btn {
+    border: none;
+    background-color: #2f2f2f;
+    color: #fefefe;
+    padding: 10px;
+    border-radius: 10px;
+  }
+}
+.goku_container {
+  width: 70%;
+  // background-color: #fff;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  img {
+    width: 250px;
+    object-fit: contain;
+  }
+}
