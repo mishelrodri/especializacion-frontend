@@ -1,0 +1,25 @@
+<div class="conatiner">
+  <div class="heroes">
+    <h1>📜 Table of Heroes</h1>
+    <button (click)="changeData()" >Change Data</button>
+    <table>
+      <thead>
+        <th>#</th>
+        <th>Heroe</th>
+      </thead>
+      <tbody >
+
+ <ng-container *ngIf="list!=null; else noTabla">
+  <tr *ngFor="let item of list; let i=index">
+    <td>{{i+1}}</td>
+    <td>{{item}}</td>
+  </tr>
+ </ng-container>
+
+ <ng-template #noTabla>
+  <p>No hay Datos</p>
+</ng-template>
+      </tbody>
+    </table>
+  </div>
+  </div>

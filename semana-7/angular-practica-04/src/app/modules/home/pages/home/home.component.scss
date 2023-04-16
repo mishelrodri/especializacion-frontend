@@ -1,0 +1,40 @@
+.container {
+  width: 100%;
+  min-height: calc(100vh - 122px);
+  display: grid;
+  grid-template-columns: 1fr 250px;
+
+  .main {
+    background-color: red;
+    padding: 20px;
+  }
+  .aside {
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // place-content: center;
+
+    .nav {
+      width: 100%;
+      display: grid;
+      gap: 20px;
+
+      li {
+        display: block;
+        width: 100%;
+        list-style: none;
+      }
+
+      a {
+        display: block;
+        text-decoration: none;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        font-weight: bold;
+      }
+    }
+  }
+}

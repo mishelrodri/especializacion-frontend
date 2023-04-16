@@ -1,0 +1,11 @@
+<div class="conatiner">
+<div>
+  <h1>📜 List of Animals</h1>
+  <ul class="list">
+    <li *ngFor="let item of list"
+    [ngClass]="{'seleccionado': elemento === elementoSeleccionado}"
+     (click)="seleccionarElemento(elemento)" #elemento>
+     {{item}} </li>
+  </ul>
+</div>
+</div>
