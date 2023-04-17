@@ -1,0 +1,30 @@
+<h1>{{ title }}</h1>
+
+<input [(ngModel)]="newTodo" placeholder="Add new todo" (keyup.enter)="addTodo()">
+
+<ul class="todo-list">
+  <li *ngFor="let todo of todos" class="todo-item">
+    <!-- <input type="checkbox" [(ngModel)]="todo.completed">
+    <input [(ngModel)]="todo.content" [disabled]="todo.completed">
+    <button (click)="borrar(todo)">Delete</button> -->
+    <div *ngIf="!todo.editing" class="todo-item-content">
+      <input type="checkbox" [(ngModel)]="todo.completed" class="todo-item-checkbox">
+      <span (click)="todo.editing = true" class="todo-item-text">{{ todo.content }}</span>
+      <button (click)="borrar(todo)" class="todo-item-delete">Delete</button>
+    </div>
+    <div *ngIf="todo.editing" class="todo-item-content">
+      <input [(ngModel)]="todo.content" (blur)="todo.editing = false" class="todo-item-input">
+    </div>
+  </li>
+
+
+
+
+
+
+
+</ul>
+
+
+
+<button (click)="deleteCompletedTodos()" [disabled]="disabled()">Delete completed todos</button>

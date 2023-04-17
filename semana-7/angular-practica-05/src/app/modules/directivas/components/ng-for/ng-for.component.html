@@ -1,0 +1,10 @@
+<div>
+  <ul>
+   <ng-container *ngFor="let item of list, let i=index">
+    <li  [ngClass]="(item.genero=='Femenino') ? 'female':'male'">
+      {{item.nombre}} - {{ item.edad}} - {{ item.genero}}
+      <button (click)="quitar(i)">❌</button>
+    </li>
+  </ng-container>
+  </ul>
+</div>
