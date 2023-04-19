@@ -1,0 +1,25 @@
+
+<h1>📜Todo List🐱‍🏍</h1>
+<input type="text" [(ngModel)]="desc" (keyup.enter)="addTodo()" placeholder="new task!">
+
+<div>
+<ul>
+  <ng-container *ngFor="let item of list">
+    <li>
+    <ng-container *ngIf="!item.editing">
+      <input type="checkbox" [(ngModel)]="item.status" >
+      <span (click)="item.editing=true">{{item.id}} - {{item.description}}</span>
+      <!-- <button type="button" [disabled]="item.status">❌</button> -->
+      <button type="button" (click)="deleteTodo(item.id)">❌</button>
+    </ng-container>
+
+    <ng-container *ngIf="item.editing" >
+      <input type="text" autofocus placeholder="Edit your Task!" (blur)="item.editing=false" [(ngModel)]="item.description">
+    </ng-container>
+    </li>
+  </ng-container>
+</ul>
+
+<button (click)="deleteAllTaskComplet()" [disabled]="disabledButton()">Eliminar tareas completadas</button>
+</div>
+

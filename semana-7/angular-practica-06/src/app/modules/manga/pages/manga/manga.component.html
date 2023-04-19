@@ -1,0 +1,17 @@
+<h1>🌈 BUSCA TUS MANGAS AQUI</h1>
+<input class="inputManga" type="text" [(ngModel)]="manga"  (keyup.enter)="buscarManga()" placeholder="Search your Manga here!!">
+
+<div>
+  <ul class="lista">
+    <ng-container *ngIf="list.length>0;else noManga">
+    <li *ngFor="let item of list" class="item_manga">
+          {{item.title}}
+        <img [src]="item.images['webp'].image_url" alt="">
+      </li>
+        </ng-container>
+
+    <ng-template #noManga>
+      <p>No Exiten mangas con ese nombre ❌</p>
+    </ng-template>
+  </ul>
+</div>
