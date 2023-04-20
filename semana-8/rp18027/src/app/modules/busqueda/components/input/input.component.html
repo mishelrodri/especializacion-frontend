@@ -1,0 +1,7 @@
+
+
+<div class="container_input">
+  <h3 class="container_input__title">Componente Buscar</h3>
+<input [(ngModel)]="busqueda" (keyup.enter)="filtrar()" class="input_search" type="text" placeholder="Buscar">
+</div>
+<app-resultado [lista]="lista"></app-resultado>

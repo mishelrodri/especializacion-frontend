@@ -1,0 +1,10 @@
+<section class="container__mangas">
+  <h1>List of Manhwas</h1>
+
+  <ul class="lista">
+    <li class="lista__item" *ngFor="let item of list">
+      <app-card-manga [obj]="item"></app-card-manga>
+    </li>
+  </ul>
+
+</section>

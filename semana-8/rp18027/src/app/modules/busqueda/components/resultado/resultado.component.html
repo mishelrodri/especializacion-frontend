@@ -1,0 +1,13 @@
+
+<h2 class="title_resultado">🐱‍💻 Resultado</h2>
+<main class="container_resultado">
+<ng-container *ngIf="lista.length>0; else noData">
+  <ng-container *ngFor="let item of lista">
+    <app-card [obj]="item"></app-card>
+  </ng-container>
+</ng-container>
+
+<ng-template #noData>
+  <p class="noData">😅 No hay Datos para Mostrar</p>
+</ng-template>
+</main>
