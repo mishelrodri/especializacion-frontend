@@ -73,18 +73,6 @@
       "nutricion": "La dieta de tu perro debe contener la proporción adecuada de todos los principales grupos de nutrientes. Además, deberá tener siempre agua fresca a su disposición."
     },
     {
-      "id": 8,
-      "raza": "Chow Chow",
-      "des": "El Chow chow de pelo duro es un perro pequeño, compacto y cuadrado. Su cola se curva sobre el lomo. La parte interior de la boca y la lengua son de color azul/negro. Puede tener dos tipos de pelaje, duro o suave, y una amplia variedad de tonos (negro, rojizo, azul, beis, crema o blanco).",
-      "img": "https://res.cloudinary.com/dznipjpqz/image/upload/v1630307326/canes/chowChow_r_edj52t.png",
-      "origen": "Mongolia",
-      "peso": "25kg",
-      "guardian": "No",
-      "salud": "Los problemas de salud más comunes del chow chow son la displasia de codo y los problemas en los párpados. Al igual que muchas otras razas, pueden sufrir displasia de cadera (una enfermedad que puede provocar problemas de movilidad).",
-      "ejercicio": "El chow chow no necesita una gran cantidad de ejercicio, le basta con una hora diaria, pero prefiere estar en el exterior y vivirá feliz a su aire en el jardín. Aun así, deberá tener una zona fresca con sombra donde resguardarse del frío o de las altas temperaturas. Si hacen demasiado ejercicio de jóvenes, pueden sufrir problemas de huesos y articulaciones a la edad adulta, así que debe controlarse bien el ejercicio que realicen.",
-      "nutricion": "La dieta de tu perro debe contener la proporción adecuada de todos los principales grupos de nutrientes. Además, deberá tener siempre agua fresca a su disposición."
-    },
-    {
       "id": 10,
       "raza": "Bóxer",
       "des": "El Bóxer es un perro de tamaño mediano, musculoso, robusto y ancho de pecho. Tiene un morro corto y un mentón ligeramente curvado hacia arriba. El color del pelaje corto puede ser marrón y atigrado, normalmente con algunas marcas blancas.",
