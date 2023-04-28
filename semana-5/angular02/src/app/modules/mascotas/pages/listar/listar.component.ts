@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GetpetsService } from '../../services/getpets.service';
 import { IMascota } from '../../interface/mascotas.interface';
+import Swal from 'sweetalert2';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-listar',
@@ -15,7 +17,10 @@ export class ListarComponent implements OnInit {
   datosM: string[] = [];
   datos: any[] = ['Usuarios', 30, true, "{'salario':300}"];
 
-  constructor(private mascotaService: GetpetsService) {
+  constructor(
+    private mascotaService: GetpetsService,
+    private toastr: ToastrService
+  ) {
     // console.log(mascotas.getMascotas());
     this.listar();
   }
@@ -70,5 +75,42 @@ export class ListarComponent implements OnInit {
     for (const iterador of this.datos) {
       console.log(iterador);
     }
+  }
+
+  // TODO: Alerta
+  eliminarMascota(pet: IMascota) {
+    Swal.fire({
+      title: '¿Estas seguro de eliminar?',
+      text: `Esta seguro de borrar a ${pet.raza}`,
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, cancel!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // ! actualizar el array omitiendo la mascota eliminada
+        this.mascotas = this.mascotas.filter(
+          (objMascota: IMascota) => objMascota.id !== pet.id
+        );
+
+        // ! para quitar definitivo del json
+        this.mascotaService.eliminarMascotaId(pet.id).subscribe(
+          (resp: any) => {
+            this.toastr.success(
+              'El registro fue eliminado con éxito!',
+              'Eliminado',
+              { positionClass: 'toast-top-right' }
+            );
+          },
+          (err: any) => {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: err.error.msg,
+            });
+          }
+        );
+      }
+    });
   }
 }

@@ -16,6 +16,7 @@ import { SkeletonComponent } from './layout/skeleton/skeleton.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     AppRoutingModule,
     HttpClientModule,
+    ToastrModule.forRoot(),
   ],
   //serviciosss
   providers: [

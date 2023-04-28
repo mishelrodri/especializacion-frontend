@@ -11,6 +11,7 @@
       <a [routerLink]="['/'+pets+'/', obj.id]" class="btn btn-primary"
         >Go somewhere</a
       >
+      <a (click)="eliminarPets(obj)" class="btn btn-warning m-1">Quitar</a>
     </div>
   </div>
 </div>
