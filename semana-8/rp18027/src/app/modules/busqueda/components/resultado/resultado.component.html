@@ -1,13 +1,25 @@
 
 <h2 class="title_resultado">🐱‍💻 Resultado</h2>
 <main class="container_resultado">
-<ng-container *ngIf="lista.length>0; else noData">
-  <ng-container *ngFor="let item of lista">
+<ng-container *ngIf="list.length>0; else noData">
+  <ng-container *ngFor="let item of list">
     <app-card [obj]="item"></app-card>
   </ng-container>
 </ng-container>
 
 <ng-template #noData>
-  <p class="noData">😅 No hay Datos para Mostrar</p>
+  <p [ngClass]="mostrarLoader ? 'hidden': ''" class="noData">😅 No hay Datos para Mostrar</p>
 </ng-template>
+<div [ngClass]="mostrarLoader ? '': 'hidden'" class="dot-spinner">
+<!-- <div  class="dot-spinner"> -->
+  <div class="dot-spinner__dot"></div>
+  <div class="dot-spinner__dot"></div>
+  <div class="dot-spinner__dot"></div>
+  <div class="dot-spinner__dot"></div>
+  <div class="dot-spinner__dot"></div>
+  <div class="dot-spinner__dot"></div>
+  <div class="dot-spinner__dot"></div>
+  <div class="dot-spinner__dot"></div>
+</div>
 </main>
+
