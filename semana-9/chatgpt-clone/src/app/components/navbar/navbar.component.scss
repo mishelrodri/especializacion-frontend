@@ -1,0 +1,23 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  padding: 5px 10px;
+  border-bottom: 1px solid #ececf1;
+  background-color: #343541;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // background-color: red;
+  .navbar_btn {
+    background-color: transparent;
+    border: none;
+    color: #ececf1;
+
+    .icon {
+      width: 26px;
+      height: 26px;
+    }
+  }
+}

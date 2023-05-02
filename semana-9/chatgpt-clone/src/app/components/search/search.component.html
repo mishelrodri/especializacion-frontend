@@ -1,0 +1,35 @@
+<div class="search__container">
+  <form (submit)="enviarPregunta()">
+    <div class="input-text-area">
+      <textarea
+        cols="30"
+        rows="1"
+        class="text-area"
+        placeholder="Send a message."
+        [(ngModel)]="pregunta"
+        name="pregunta"
+      ></textarea>
+      <button type="submit" class="btn">
+        <svg
+          stroke="currentColor"
+          fill="none"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-4 w-4 mr-1"
+          height="1em"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+    </div>
+  </form>
+  <span class="promo"
+    >Free Research Preview. ChatGPT may produce inaccurate information about
+    people, places, or facts. <a href="#">ChatGPT Mar 23 Version</a></span
+  >
+</div>

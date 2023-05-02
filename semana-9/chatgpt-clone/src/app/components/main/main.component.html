@@ -1,0 +1,13 @@
+<div class="main_container">
+  <app-navbar class="navbar_container"></app-navbar>
+  <div class="content" *ngIf="conversacion.length == 0">
+    <h1 class="main_title">ChatGPT</h1>
+    <app-get-started></app-get-started>
+  </div>
+  <div class="qa_section" *ngIf="conversacion.length > 0">
+    <ng-container *ngFor="let item of conversacion">
+      <app-chat-item [obj]="item"></app-chat-item>
+    </ng-container>
+  </div>
+  <app-search class="search-section"></app-search>
+</div>

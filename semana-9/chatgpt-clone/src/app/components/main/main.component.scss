@@ -1,0 +1,62 @@
+.main_container {
+  // padding: 0 24px;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 40px 1fr auto;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
+  @media only screen and (min-width: 770px) {
+    grid-template-rows: 1fr 110px;
+  }
+
+  .content {
+    padding: 24px;
+    overflow-y: auto;
+    @media only screen and (min-width: 770px) {
+      display: grid;
+      place-content: center;
+    }
+  }
+
+  .main_title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 800;
+    margin: 24px 0;
+  }
+
+  .navbar_container {
+    @media only screen and (min-width: 770px) {
+      display: none;
+    }
+  }
+}
+
+.qa_section {
+  overflow-y: auto;
+}
+
+.qa_section::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.qa_section::-webkit-scrollbar-track {
+  background: #343541;
+}
+
+/* Handle */
+.qa_section::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.qa_section::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 10px;
+}
+
+// texto animado

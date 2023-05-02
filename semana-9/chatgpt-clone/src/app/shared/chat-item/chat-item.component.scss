@@ -1,0 +1,45 @@
+.chat-item {
+  width: 100%;
+  padding: 20px 16px;
+  &__content {
+    // background-color: red;
+    display: flex;
+    gap: 10px;
+    max-width: 48rem;
+    margin-inline: auto;
+  }
+
+  .paragraph {
+    width: 100%;
+    padding: 10px;
+    word-wrap: break-word;
+  }
+
+  .icon {
+    flex-shrink: 1;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.user-color {
+  background-color: #444654;
+}
+
+.chatgpt-color {
+  background-color: #343541;
+}
+
+.chat-response {
+  width: 30px;
+  height: 30px;
+  background-color: #10a37f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+}

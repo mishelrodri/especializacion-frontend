@@ -1,0 +1,111 @@
+<aside class="container_aside" [ngClass]="isOpenMenu ? '' : 'hidden'">
+  <a href="#" class="new-chat">
+    <svg
+      stroke="currentColor"
+      fill="none"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="h-4 w-4"
+      height="1em"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <line x1="12" y1="5" x2="12" y2="19"></line>
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+    </svg>
+
+    New Chat
+  </a>
+  <div class="history">
+    <ng-container *ngFor="let item of history">
+      <a href="#" class="history_item">
+        <svg
+          stroke="currentColor"
+          fill="none"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="history_item__icon"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+          ></path>
+        </svg>
+        <span class="history_item__text">
+          {{ item.body }}
+        </span>
+      </a>
+    </ng-container>
+  </div>
+
+  <div class="user-info">
+    <ul>
+      <a class="user-info__item">
+        <span>
+          <svg
+            stroke="currentColor"
+            fill="none"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-4 w-4"
+            height="1em"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+
+          Upgrade to Plus
+        </span>
+
+        <span class="new">new</span>
+      </a>
+      <a class="user-info__item">
+        <span> 🆔 rp18027@ues.edu.sv </span>
+
+        <svg
+          stroke="currentColor"
+          fill="none"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-4 w-4 flex-shrink-0 text-gray-500"
+          height="1em"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="12" cy="12" r="1"></circle>
+          <circle cx="19" cy="12" r="1"></circle>
+          <circle cx="5" cy="12" r="1"></circle>
+        </svg>
+      </a>
+    </ul>
+  </div>
+</aside>
+<div class="bg-gray" [ngClass]="isOpenMenu ? '' : 'hidden'">
+  <button (click)="closeMenu()" class="btn-close">
+    <svg
+      stroke="currentColor"
+      fill="none"
+      stroke-width="1.5"
+      viewBox="0 0 24 24"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="h-6 w-6 text-white"
+      height="2em"
+      width="2em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  </button>
+</div>
