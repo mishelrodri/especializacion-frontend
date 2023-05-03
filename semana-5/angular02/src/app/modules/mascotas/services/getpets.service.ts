@@ -56,4 +56,24 @@ export class GetpetsService {
       });
     });
   }
+
+  // TODO: METODOS PARA ELIMINAR Y EDITAR
+
+  borrarMascota(pet: IMascota): any {
+    const url = `${this.baseUrl}/mascotas/${pet.id}`;
+    return this.http.delete(url);
+  }
+
+  nuevaMascota(pet: IMascota): any {
+    const url = `${this.baseUrl}/`;
+    return this.http.post(url, pet);
+  }
+
+  ediatrMascota(pet: IMascota): any {
+    console.log(pet);
+    const url = `${this.baseUrl}/${pet.id}`;
+    return this.http.put(url, pet);
+
+  }
+
 }

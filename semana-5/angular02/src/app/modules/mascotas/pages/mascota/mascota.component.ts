@@ -18,7 +18,7 @@ export class MascotaComponent implements OnInit {
     private activateRoute: ActivatedRoute,
     private mascotaSer: GetpetsService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     // como devuelve un observable
@@ -34,6 +34,7 @@ export class MascotaComponent implements OnInit {
     const id = this.activateRoute.snapshot.paramMap.get('id');
     this.mascotaSer.obtenetpetsId(id || '').then(async (resp: any) => {
       console.log('metodo usando FETCH', resp);
+      // this.mascota = resp;
     });
   }
   regresar() {
