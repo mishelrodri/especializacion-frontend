@@ -1,0 +1,78 @@
+.container {
+  .cards_img {
+    background-image: url("/assets/images/bg-main-mobile.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    padding-bottom: 70px;
+    color: var(--white);
+    &__container {
+      width: 80%;
+      max-width: 300px;
+      font-weight: 400;
+
+      &-1 {
+        position: relative;
+        top: 20px;
+        right: -40px;
+        // background-color: red;
+        &__card__cvc {
+          position: absolute;
+          top: 40%;
+          right: 35px;
+          // z-index: 99;
+        }
+      }
+
+      &-2 {
+        // background-color: red;
+        position: absolute;
+        bottom: -43px;
+        left: 20px;
+
+        .card-number {
+          position: absolute;
+          left: 20px;
+          bottom: 40%;
+        }
+
+        .card-information {
+          width: 100%;
+          position: absolute;
+          left: 0;
+          bottom: 5%;
+
+          display: flex;
+          padding: 10px;
+          justify-content: space-between;
+          align-items: center;
+          text-transform: uppercase;
+          font-size: 0.9rem;
+        }
+
+        &__logo {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          width: 65px;
+        }
+      }
+
+      &__item {
+        width: 100%;
+      }
+    }
+  }
+
+  .information__section {
+    margin-top: 45px;
+    padding: 20px;
+
+    .form-row {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
