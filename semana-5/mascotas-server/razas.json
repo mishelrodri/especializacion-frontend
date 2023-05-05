@@ -2,15 +2,15 @@
   "mascotas": [
     {
       "id": 1,
-      "raza": "Basenji",
-      "des": "Este perro de tamaño pequeño-mediano tiene una cola muy curvada y la frente arrugada. El pelaje es brillante, corto y suave y puede ser rojo y blanco, negro y blanco, negro, canela y blanco, tricolor o con muchos colores mezclados",
+      "raza": "Pastor de Antolia",
+      "des": "kkkkkkkkkkkkk",
       "img": "https://res.cloudinary.com/dznipjpqz/image/upload/v1630303771/canes/basenji_r_mdb4oy.png",
-      "origen": "África",
-      "peso": "11kg",
+      "origen": "Chihuahua",
+      "peso": "m",
       "guardian": "No",
-      "salud": "Las enfermedades heredadas más conocidas en los basenjis son un tipo de enfermedad renal (síndrome de Fanconi) y una clase de anemia. Hay pruebas genéticas para ambas dolencias. Al igual que en muchas otras razas, pueden aparecer trastornos oculares.",
-      "ejercicio": "Criado para cazar en terrenos difíciles, el basenji necesita, como mínimo, una hora diaria de ejercicio y puede resistir más si se lo puedes ofrecer. Aunque no es fácil de adiestrar, es aconsejable hacer participar al basenji en algún tipo de deporte canino para mantener el cuerpo y la mente sanos. Desconocen lo que es una carretera y les cuesta orientarse en ella, por lo que hay que tomar precauciones cuando se ejercite cerca del tráfico.",
-      "nutricion": "Los perros pequeños tienen un metabolismo rápido, lo que significa que queman energía a un ritmo muy alto. Con un estómago tan pequeño, esto implica que deben comer poco pero a menudo."
+      "salud": "kkkkkkkkkk",
+      "ejercicio": "jjjjjjjjjjjjjjjjj",
+      "nutricion": "mjjjjjjjjjjjjjjjjjj"
     },
     {
       "id": 3,
@@ -107,6 +107,28 @@
       "salud": "Al igual que muchas otras razas, el sabueso bávaro de montaña puede sufrir displasia de cadera (una enfermedad que puede provocar problemas de movilidad). Por lo tanto, es importante hacer un examen de la cadera de los perros antes de dedicarlos a la crianza.",
       "ejercicio": "Creado para cazar presas heridas —a veces durante días, este perro es muy resistente y necesitará, como mínimo, dos horas al día o más de ejercicio. Es una raza de trabajo que disfrutará rastreando y con otros deportes caninos que le ejercitarán la mente, el cuerpo y el hocico.",
       "nutricion": "La dieta de tu perro debe contener la proporción adecuada de todos los principales grupos de nutrientes. Además, deberá tener siempre agua fresca a su disposición"
+    },
+    {
+      "raza": "Pinscher",
+      "origen": "Australia",
+      "guardian": "Si",
+      "peso": "8",
+      "des": "dfghjklñmmmmm",
+      "salud": "dfghjklñmmmmm",
+      "ejercicio": "dfghjklñmmmmm",
+      "nutricion": "dfghjklñmmmmm",
+      "id": 13
+    },
+    {
+      "raza": "Chihuahua",
+      "origen": "Japonés",
+      "guardian": "Si",
+      "peso": "99",
+      "des": "nnnnnnnnnnnnnnnnnnnnnnn",
+      "salud": "mmmmmmmmmmmmmmmmmmmmm",
+      "ejercicio": "mmmmmmmmmmmmmmmmmmmm",
+      "nutricion": "kkkkkkkkkkkkkkkkkkk",
+      "id": 14
     }
   ]
 }
