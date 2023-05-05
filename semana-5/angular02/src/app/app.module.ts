@@ -45,4 +45,4 @@ import { ToastrModule } from 'ngx-toastr';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

@@ -35,6 +35,10 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'anime',
+        loadChildren: () => import('src/app/modules/anime/anime.module').then(m => m.AnimeModule)
+      },
+      {
         path: 'formularios',
         component: FormularioComponent,
         title: 'Formularios',
@@ -51,4 +55,4 @@ const routes: Routes = [
 ];
 
 @NgModule({ imports: [RouterModule.forRoot(routes)], exports: [RouterModule] })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
