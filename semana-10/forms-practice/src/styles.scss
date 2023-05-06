@@ -7,7 +7,8 @@
 }
 
 :root {
-  --input-border: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+  --input-active: hsl(249, 99%, 64%);
+  --input-border: hsl(278, 94%, 30%);
   --input-red: hsl(0, 100%, 66%);
   //  Neutral
 
@@ -18,7 +19,8 @@
 }
 
 body {
-  font-size: 18px;
+  // font-size: 18px;
+  font-size: 16px;
   font-family: "Space Grotesk", sans-serif;
   font-weight: 500;
 }

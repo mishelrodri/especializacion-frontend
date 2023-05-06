@@ -1,78 +1,271 @@
 .container {
-  .cards_img {
+  @media only screen and (min-width: 992px) {
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    place-items: center;
+    grid-template-columns: 350px 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  // ! Sección de imagenes
+  .section__imgs {
+    width: 100%;
     background-image: url("/assets/images/bg-main-mobile.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
-    width: 100%;
-    padding-bottom: 70px;
-    color: var(--white);
-    &__container {
-      width: 80%;
-      max-width: 300px;
-      font-weight: 400;
-
-      &-1 {
-        position: relative;
-        top: 20px;
-        right: -40px;
-        // background-color: red;
-        &__card__cvc {
-          position: absolute;
-          top: 40%;
-          right: 35px;
-          // z-index: 99;
-        }
+    @media only screen and (min-width: 992px) {
+      height: 100%;
+      background-image: url("/assets/images/bg-main-desktop.png");
+    }
+    .images__container {
+      width: 100%;
+      position: relative;
+      padding-bottom: 50px;
+      max-width: 500px;
+      margin-inline: auto;
+      // background-color: blue;
+      @media only screen and (min-width: 992px) {
+        height: 100%;
       }
-
-      &-2 {
-        // background-color: red;
-        position: absolute;
-        bottom: -43px;
-        left: 20px;
-
-        .card-number {
-          position: absolute;
-          left: 20px;
-          bottom: 40%;
-        }
-
-        .card-information {
-          width: 100%;
-          position: absolute;
-          left: 0;
-          bottom: 5%;
-
-          display: flex;
-          padding: 10px;
-          justify-content: space-between;
-          align-items: center;
-          text-transform: uppercase;
-          font-size: 0.9rem;
-        }
-
-        &__logo {
-          position: absolute;
-          top: 10px;
-          left: 10px;
-          width: 65px;
-        }
-      }
-
       &__item {
-        width: 100%;
+        width: 75%;
+        max-width: 320px;
+        // background-color: red;
+        &__info {
+          position: relative;
+          font-size: 0.8rem;
+          font-weight: 400;
+          color: var(--white);
+          &__img {
+            width: 100%;
+          }
+
+          &__svg {
+            width: 3.5rem;
+            position: absolute;
+            top: 15px;
+            left: 10px;
+          }
+        }
+
+        &-1 {
+          position: relative;
+          top: 20px;
+          right: -60px;
+          @media only screen and (min-width: 992px) {
+            position: absolute;
+            top: 365px;
+            right: 20px;
+          }
+
+          @media only screen and (min-width: 1300px) {
+            position: absolute;
+            // top: 50vh;
+            right: -40%;
+          }
+          .card__cvc {
+            display: block;
+            width: 100%;
+            text-align: right;
+            padding: 5px;
+            // background-color: red;
+            position: absolute;
+            top: 40%;
+            right: 10%;
+          }
+        }
+
+        &-2 {
+          position: absolute;
+          bottom: -30%;
+          left: 20px;
+          @media only screen and (min-width: 992px) {
+            top: 200px;
+            right: 20px;
+            bottom: unset;
+            left: unset;
+          }
+          @media only screen and (min-width: 1300px) {
+            // top: 25vh;
+            right: -28%;
+            bottom: unset;
+            left: unset;
+          }
+          .card-number {
+            width: 100%;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            position: absolute;
+            top: 50%;
+            left: 10px;
+          }
+
+          .card-info {
+            width: 100%;
+            position: absolute;
+            bottom: 0px;
+            left: 0;
+            padding: 10px;
+
+            display: flex;
+            justify-content: space-between;
+            text-transform: uppercase;
+          }
+        }
       }
     }
   }
 
-  .information__section {
-    margin-top: 45px;
-    padding: 20px;
+  //! Seccion de formulario
 
-    .form-row {
+  .section__form {
+    margin-top: 60px;
+    width: 100%;
+    padding: 20px;
+    // background-color: red;
+    @media only screen and (min-width: 992px) {
+      margin-top: unset;
+    }
+    .form {
+      width: 100%;
+      max-width: 550px;
+      margin-inline: auto;
       display: flex;
       flex-direction: column;
+      gap: 15px;
+      @media only screen and (min-width: 992px) {
+        gap: 30px;
+      }
+      .row {
+        width: 100%;
+        display: flex;
+        gap: 20px;
+      }
+
+      .row-2 {
+        width: 100%;
+        display: flex;
+        gap: 10px;
+      }
+      .form-item {
+        label {
+          font-size: 0.8rem;
+          color: var(--very-dark-violet);
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+
+        .form-input {
+          width: 100%;
+          padding: 10px;
+          outline: none;
+          border: 1px solid var(--dark-grayish-violet);
+          border-radius: 5px;
+          font-family: "Space Grotesk", sans-serif;
+          font-weight: 800;
+        }
+        // .form-input-2 {
+        //   // width: 100px;
+        // }
+        .form-input:focus {
+          border: 1px solid var(--input-active);
+        }
+
+        .error {
+          border: 1px solid var(--input-red);
+        }
+      }
     }
   }
+
+  .message-confirm {
+    margin-top: 60px;
+    width: 100%;
+    max-width: 350px;
+    margin-inline: auto;
+    padding: 20px;
+    // background-color: red;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    &__img {
+      width: 80px;
+    }
+
+    .messages {
+      display: grid;
+      text-align: center;
+      .message {
+        font-size: 2rem;
+      }
+
+      .message-description {
+        color: var(--dark-grayish-violet);
+      }
+    }
+
+    @media only screen and (min-width: 992px) {
+      margin-top: unset;
+    }
+  }
+}
+.btn {
+  display: block;
+  width: 100%;
+  background-color: var(--very-dark-violet);
+  color: var(--light-grayish-violet);
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 800;
+  transition: 0.3s background-color ease-in-out;
+}
+
+.btn:hover {
+  background-color: var(--input-border);
+}
+
+//! errores
+// .invalid-form {
+//   .invalid-form-error {
+//     font-size: 0.8rem;
+//     color: var(--input-red);
+//     font-weight: 800;
+//   }
+// }
+
+// input:valid + .invalid-form {
+//   display: none;
+// }
+// input:invalid + .invalid-form {
+//   // font-size: 0.8rem;
+//   // color: var(--input-red);
+//   // font-weight: 800;
+//   background-color: red;
+//   display: block !important;
+// }
+
+.invalid-form {
+  display: none;
+
+  .invalid-form-error {
+    position: absolute;
+    font-size: 0.8rem;
+    color: var(--input-red);
+    font-weight: 800;
+  }
+}
+
+.error ~ .invalid-form {
+  display: block;
 }
