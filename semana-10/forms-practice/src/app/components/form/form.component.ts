@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { STRING_VALIDATOR } from 'src/app/constants/constants';
+import { MONTH_VALIDATOR, STRING_VALIDATOR } from 'src/app/constants/constants';
 import { NUMBER_VALIDATOR } from '../../constants/constants';
 
 @Component({
@@ -13,6 +13,7 @@ export class FormComponent implements OnInit {
   formulario!: FormGroup;
   private isString: string = STRING_VALIDATOR;
   private isNumber: string = NUMBER_VALIDATOR;
+  private isMonth: string = MONTH_VALIDATOR;
 
   formSubmit: boolean = false;
   constructor(private fb: FormBuilder) { }
@@ -25,7 +26,7 @@ export class FormComponent implements OnInit {
     return this.fb.group({
       cardName: ['', [Validators.required, Validators.pattern(this.isString)]],
       cardNumber: ['', [Validators.required, Validators.pattern(this.isNumber)]],
-      cardMonth: ['', [Validators.required, Validators.pattern(this.isNumber)]],
+      cardMonth: ['', [Validators.required, Validators.pattern(this.isMonth)]],
       cardYear: ['', [Validators.required, Validators.pattern(this.isNumber)]],
       cardCvc: ['', [Validators.required, Validators.pattern(this.isNumber)]]
     })
@@ -39,11 +40,22 @@ export class FormComponent implements OnInit {
       this.formSubmit = false;
 
     }
+
+
+    return Object.values(this.formulario.controls)
+      .forEach((control) => control.markAllAsTouched());
+
   }
 
   esCampoValido(campo: string) {
     const validarCampo = this.formulario.get(campo);
     return !validarCampo?.valid && validarCampo?.touched ? 'error' : validarCampo?.touched ? '' : '';
+  }
+
+
+  changeStatus(): void {
+    this.formSubmit = !this.formSubmit;
+    this.formulario.reset();
   }
 
 }

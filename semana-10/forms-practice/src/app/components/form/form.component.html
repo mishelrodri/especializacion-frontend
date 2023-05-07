@@ -8,7 +8,9 @@
             src="assets/images/bg-card-back.png"
             alt=""
           />
-          <span class="card__cvc">{{ formulario.get("cardCvc")?.value }}</span>
+          <span class="card__cvc">{{
+            formulario.get("cardCvc")?.value || "000"
+          }}</span>
         </div>
       </div>
 
@@ -26,12 +28,18 @@
           />
 
           <span class="card-number">{{
-            formulario.get("cardNumber")?.value
+            formulario.get("cardNumber")?.value || "0000 0000 0000 0000"
+              | creditCard
           }}</span>
 
           <div class="card-info">
-            <span>{{ formulario.get("cardName")?.value }}</span>
-            <span>{{ formulario.get("cardMonth")?.value }}</span>
+            <span>{{
+              formulario.get("cardName")?.value || "JANE APPLESED"
+            }}</span>
+            <span
+              >{{ formulario.get("cardMonth")?.value || "00" }} /
+              {{ formulario.get("cardYear")?.value || "00" }}</span
+            >
           </div>
         </div>
       </div>
@@ -47,6 +55,7 @@
             class="form-input"
             placeholder="e.g. Jane Appleseed"
             formControlName="cardName"
+            maxlength="50"
             [class]="esCampoValido('cardName')"
           />
 
@@ -72,6 +81,7 @@
             required
             placeholder="e.g. 123 5678 9123 0000"
             formControlName="cardNumber"
+            maxlength="16"
             [class]="esCampoValido('cardNumber')"
           />
           <div class="invalid-form">
@@ -98,6 +108,7 @@
                   class="form-input form-input-2"
                   placeholder="MM"
                   formControlName="cardMonth"
+                  maxlength="2"
                   [class]="esCampoValido('cardMonth')"
                 />
                 <div class="invalid-form">
@@ -119,6 +130,7 @@
                   class="form-input form-input-2"
                   placeholder="YY"
                   formControlName="cardYear"
+                  maxlength="2"
                   [class]="esCampoValido('cardYear')"
                 />
                 <div class="invalid-form">
@@ -144,6 +156,7 @@
                 class="form-input"
                 placeholder="e.g. 123"
                 formControlName="cardCvc"
+                maxlength="3"
                 [class]="esCampoValido('cardCvc')"
               />
               <div class="invalid-form">
@@ -178,7 +191,7 @@
         <span class="message-description">We've added your card details</span>
       </div>
 
-      <button class="btn">Continue</button>
+      <button (click)="changeStatus()" class="btn">Continue</button>
     </div>
   </ng-container>
 </main>
