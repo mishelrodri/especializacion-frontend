@@ -1,0 +1,80 @@
+<button
+  type="button"
+  class="btn btn-primary btn-sm btn-rounded"
+  (click)="openModal(content, empleado)"
+>
+  {{ leyenda }}
+</button>
+
+<ng-template #content role="document" let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Card</h5>
+    <button
+      type="button"
+      class="btn-close"
+      aria-hidden="true"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form
+      id="formEmpleados"
+      name="formEmpleados"
+      (ngSubmit)="guardar()"
+      [formGroup]="formularioGeneral"
+    >
+      <!-- <p class="mb-2">
+        ID:
+        <span class="text-primary">{{ empleado.id }}</span>
+      </p> -->
+      <div class="mb-4">
+        <label for="nombre">Nombre:</label>
+        <input
+          id="nombre"
+          name="nombre"
+          type="text"
+          class="form-control form-control-sm"
+          formControlName="nombre"
+          [class]="esCampoValido('nombre')"
+        />
+        <div class="invalid-feedback">
+          <span *ngIf="formularioGeneral.get('nombre')?.errors?.['required']"
+            >Requiere un nombre</span
+          >
+
+          <span *ngIf="formularioGeneral.get('nombre')?.errors?.['pattern']"
+            >Solamente se permiten letras</span
+          >
+        </div>
+      </div>
+      <div class="mb-4">
+        <label for="apellido">Apellido:</label>
+        <input
+          id="apellido"
+          name="apellido"
+          type="text"
+          class="form-control form-control-sm"
+          formControlName="apellido"
+          [class]="esCampoValido('apellido')"
+        />
+        <div class="invalid-feedback">
+          <span *ngIf="formularioGeneral.get('apellido')?.errors?.['required']"
+            >Requiere un apellido</span
+          >
+
+          <span *ngIf="formularioGeneral.get('apellido')?.errors?.['pattern']"
+            >Solamente se permiten letras</span
+          >
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="submit" form="formEmpleados">
+      Guardar
+    </button>
+    <button class="btn btn-secondary" (click)="modal.close('Close click')">
+      Close
+    </button>
+  </div>
+</ng-template>
