@@ -23,34 +23,58 @@ export class ModalComponent implements OnInit {
   //TODO: VALIDACIONES
   private isString: string = VALIDATION_STRING;
 
-  constructor(private modalService: NgbModal, private fb: FormBuilder, private empleadoService: EmpleadoService) { }
+  constructor(private modalService: NgbModal, private fb: FormBuilder, private empleadoService: EmpleadoService) {
+    this.formularioGeneral = this.iniciarFormulario();
+  }
 
   ngOnInit(): void {
-    // if (this.empleado) {
-    //   this.formularioGeneral = this.iniciarFormulario();
-    // } else {
-    //   this.formularioGeneral.patchValue(this.empleado);
-    // }
-    this.formularioGeneral = this.iniciarFormulario();
-
-    console.log('aaaaaaa', this.empleado)
-
+    if (this.empleado) {
+      this.formularioGeneral.patchValue(this.empleado);
+    }
   }
 
   private iniciarFormulario() {
     return this.fb.group({
+      id: [''],
       nombre: ['', [Validators.required, Validators.pattern(this.isString)]],
-      apellido: ['', [Validators.required, Validators.pattern(this.isString)]]
+      apellido: ['', [Validators.required, Validators.pattern(this.isString)]],
+      puntaje: ['', [Validators.required]]
     })
   }
 
   guardar() {
-    console.log('guardar')
-    const empleado = this.formularioGeneral.value;
-    this.empleadoService.saveEmpleado(empleado).subscribe((resp: any) => {
-      console.log('EMPLEADO AGREGADO')
-    })
-    this.modalService.dismissAll();
+
+    if (this.formularioGeneral.valid) {
+
+
+      if (this.empleado?.id) { //editamos
+
+        const empleado = this.formularioGeneral.value;
+        this.empleadoService.updateEmpleado(empleado).subscribe((resp: any) => {
+          console.log('EMPLEADO EDITADO')
+          this.empleadoService.getEmpleados();
+          this.formularioGeneral.reset();
+        })
+
+      } else {//guardamos
+        const empleado = this.formularioGeneral.value;
+        this.empleadoService.saveEmpleado(empleado).subscribe((resp: any) => {
+          console.log('EMPLEADO AGREGADO')
+          this.empleadoService.getEmpleados();
+          this.formularioGeneral.reset();
+        })
+      }
+
+      this.modalService.dismissAll();
+
+    }
+
+    if (this.formularioGeneral.valid) { //agregamos
+
+    }
+
+
+
 
     return Object.values(this.formularioGeneral.controls).forEach((control) => control.markAsTouched())
   }

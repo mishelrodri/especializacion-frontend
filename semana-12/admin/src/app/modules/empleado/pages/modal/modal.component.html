@@ -27,6 +27,17 @@
         ID:
         <span class="text-primary">{{ empleado.id }}</span>
       </p> -->
+      <div class="mb-4" *ngIf="empleado?.id">
+        <label for="id">ID:</label>
+        <input
+          id="id"
+          name="id"
+          type="text"
+          readonly="true"
+          class="form-control form-control-sm"
+          formControlName="id"
+        />
+      </div>
       <div class="mb-4">
         <label for="nombre">Nombre:</label>
         <input
@@ -63,6 +74,26 @@
           >
 
           <span *ngIf="formularioGeneral.get('apellido')?.errors?.['pattern']"
+            >Solamente se permiten letras</span
+          >
+        </div>
+      </div>
+      <div class="mb-4">
+        <label for="puntaje">Puntaje:</label>
+        <input
+          id="puntaje"
+          name="puntaje"
+          type="text"
+          class="form-control form-control-sm"
+          formControlName="puntaje"
+          [class]="esCampoValido('puntaje')"
+        />
+        <div class="invalid-feedback">
+          <span *ngIf="formularioGeneral.get('puntaje')?.errors?.['required']"
+            >Requiere un puntaje</span
+          >
+
+          <span *ngIf="formularioGeneral.get('puntaje')?.errors?.['pattern']"
             >Solamente se permiten letras</span
           >
         </div>

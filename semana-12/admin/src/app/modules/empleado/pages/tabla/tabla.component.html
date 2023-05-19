@@ -46,9 +46,15 @@
         </td>
         <td>{{ data.nombre }}</td>
         <td>{{ data.apellido }}</td>
-        <td>
+        <td class="d-flex justify-content-center gap-1">
           <!-- Button trigger modal -->
           <app-modal [empleado]="data" [leyenda]="'editar'"></app-modal>
+          <button
+            (click)="eliminar(data)"
+            class="btn btn-danger btn-sm btn-rounded"
+          >
+            Eliminar
+          </button>
         </td>
       </tr>
     </tbody>

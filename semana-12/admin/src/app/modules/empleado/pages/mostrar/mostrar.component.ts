@@ -14,28 +14,20 @@ export class MostrarComponent implements OnInit {
   offset = 0;
 
 
-  listEmpleados: IEmpleado[] = [];
+  // listEmpleados: IEmpleado[] = [];
   term: string = '';
   constructor(private empleadoService: EmpleadoService) { }
 
   ngOnInit(): void {
     this.breadCrumbItems = [{ label: 'Empleado' }, { label: 'Mostrar', active: true }];
-    this.empleados();
-
+    this.empleadoService.getEmpleados();
   }
 
-  empleados() {
-    this.empleadoService.getEmpleados().subscribe((resp: any) => {
-      this.listEmpleados = resp;
-      console.log(resp)
-    })
 
-    // return this.listEmpleados;
+
+  get listEmpleados() {
+    return this.empleadoService.listEmpleados;
   }
-
-  // get listEmpleados() {
-  //   return this.empleadoService.listEmpleados;
-  // }
 
 
 }
