@@ -61,7 +61,9 @@ export function createTranslateLoader(http: HttpClient): any {
     NgbTooltipModule,
     SharedModule,
     ScrollToModule.forRoot(),
-    NgbModule
+    NgbModule,
+
+
   ],
   bootstrap: [AppComponent],
   providers: [

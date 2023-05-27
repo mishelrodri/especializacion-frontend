@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IEmpleado } from '../../interface/IEmpleado';
 import { EmpleadoService } from '../../service/empleado.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-tabla',
@@ -21,10 +22,27 @@ export class TablaComponent implements OnInit {
   }
 
   eliminar(empleado: IEmpleado) {
-    this.empleadoService.deleteEmpleado(empleado).subscribe((resp: any) => {
-      console.log('elimino')
-      this.empleadoService.getEmpleados();
+    Swal.fire({
+      title: 'Estas segurop de eliminar el registro?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Si',
+      denyButtonText: `No`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        this.empleadoService.deleteEmpleado(empleado).subscribe((resp: any) => {
+          console.log('elimino')
+          Swal.fire('Cambios Realizados!', '', 'success')
+          this.empleadoService.getEmpleados();
+        })
+
+      } else if (result.isDenied) {
+        Swal.fire('Acción Cancelada', '', 'info')
+      }
     })
+
+
   }
 
 

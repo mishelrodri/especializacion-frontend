@@ -15,7 +15,8 @@
         <th class="align-middle">ID</th>
         <th class="align-middle">Nombre</th>
         <th class="align-middle">Apellido</th>
-        <th class="align-middle">Acciones</th>
+        <th class="align-middle">Puntaje</th>
+        <th class="align-middle text-center">Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -46,6 +47,7 @@
         </td>
         <td>{{ data.nombre }}</td>
         <td>{{ data.apellido }}</td>
+        <td>{{ data.puntaje }}</td>
         <td class="d-flex justify-content-center gap-1">
           <!-- Button trigger modal -->
           <app-modal [empleado]="data" [leyenda]="'editar'"></app-modal>

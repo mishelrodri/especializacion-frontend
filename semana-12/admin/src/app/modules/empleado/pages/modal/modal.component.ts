@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { VALIDATION_STRING } from '../../constants/validations';
 import { IEmpleado } from '../../interface/IEmpleado';
 import { EmpleadoService } from '../../service/empleado.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -53,6 +54,7 @@ export class ModalComponent implements OnInit {
         this.empleadoService.updateEmpleado(empleado).subscribe((resp: any) => {
           console.log('EMPLEADO EDITADO')
           this.empleadoService.getEmpleados();
+          Swal.fire('Empleado Editado!', '', 'success')
           this.formularioGeneral.reset();
         })
 
@@ -61,6 +63,7 @@ export class ModalComponent implements OnInit {
         this.empleadoService.saveEmpleado(empleado).subscribe((resp: any) => {
           console.log('EMPLEADO AGREGADO')
           this.empleadoService.getEmpleados();
+          Swal.fire('Empleado Agregado!', '', 'success')
           this.formularioGeneral.reset();
         })
       }
