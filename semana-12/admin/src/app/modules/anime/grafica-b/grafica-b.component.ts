@@ -1,5 +1,7 @@
-import { Component, OnInit,Input } from '@angular/core';
-import { ApexAxisChartSeries, ApexChart, ApexNonAxisChartSeries, ApexTitleSubtitle } from 'ng-apexcharts';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { ChartComponent } from 'ng-apexcharts';
+import { ChartOptions } from './chartType.interface';
+
 
 @Component({
   selector: 'app-grafica-b',
@@ -7,9 +9,26 @@ import { ApexAxisChartSeries, ApexChart, ApexNonAxisChartSeries, ApexTitleSubtit
   styleUrls: ['./grafica-b.component.scss']
 })
 export class GraficaBComponent implements OnInit {
+  @ViewChild("chart") chart: ChartComponent;
+  @Input('data') ChartOptions: Partial<ChartOptions> = {
+    series: [
+      {
+        name: "My-series",
+        data: [10, 41, 35]
+      }
+    ],
+    chart: {
+      height: 350,
+      type: "bar"
+    },
+    title: {
+      text: "My First Angular"
+    },
+    xaxis: {
+      categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"]
+    }
+  };
 
-@Input() series:[]=[];
-@Input() title:string;
 
   constructor() { }
 

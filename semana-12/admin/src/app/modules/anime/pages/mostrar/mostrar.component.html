@@ -1,8 +1,5 @@
 <div class="container-fluid">
-  <app-page-title
-    title="Anime"
-    [breadcrumbItems]="breadCrumbItems"
-  ></app-page-title>
+  <app-page-title title="Anime" [breadcrumbItems]="breadCrumbItems"></app-page-title>
 
   <div class="row">
     <div class="col-lg-6">
@@ -12,12 +9,7 @@
             <div class="col-sm-4">
               <div class="search-box me-2 mb-2 d-inline-block">
                 <div class="position-relative">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Search..."
-                    [(ngModel)]="term"
-                  />
+                  <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="term" />
                   <i class="bx bx-search-alt search-icon"></i>
                 </div>
               </div>
@@ -35,31 +27,32 @@
       <div class="card">
         <div class="card-body">
           <!-- aqui grafica -->
-          <app-grafica-a  [data]="dataGrafica" title="Anime" [labels]="labels" [colors]="colors" [tipo]="'polarArea'"></app-grafica-a>
+          <app-grafica-a [data]="dataGrafica" title="Anime" [labels]="labels" [colors]="colors"
+            [tipo]="'polarArea'"></app-grafica-a>
         </div>
       </div>
     </div>
   </div>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-6">
-      <div class="card">
-        <div class="card-body">
-          <!-- aqui grafica -->
-          <app-grafica-a ></app-grafica-a>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <!-- aqui grafica -->
+            <app-grafica-a></app-grafica-a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-lg-6">
-      <div class="card">
-        <div class="card-body">
-          <!-- aqui grafica -->
-          <app-grafica-b></app-grafica-b>
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <!-- aqui grafica -->
+            <app-grafica-b [data]="dataApex"></app-grafica-b>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>
