@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'pages', loadChildren: () => import('./extrapages/extrapages.module').then(m => m.ExtrapagesModule), canActivate: [AuthGuard] },
   { path: 'anime', component: LayoutComponent, loadChildren: () => import('./modules/anime/anime.module').then(m => m.AnimeModule), canActivate: [AuthGuard] },
   { path: 'empleados', component: LayoutComponent, loadChildren: () => import('./modules/empleado/empleado.module').then(m => m.EmpleadoModule), canActivate: [AuthGuard] },
+  { path: 'bibliotecas', component: LayoutComponent, loadChildren: () => import('./modules/biblioteca/biblioteca.module').then(m => m.BibliotecaModule), canActivate: [AuthGuard] },
   { path: 'crypto-ico-landing', component: CyptolandingComponent },
   { path: '**', component: Page404Component },
 ];

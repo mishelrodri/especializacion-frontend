@@ -826,19 +826,31 @@ export const MENU: MenuItem[] = [
   },
   {
     id: 130,
-    label: 'MENUITEMS.MULTILEVEL.TEXT',
+    label: 'Anime',
     icon: 'bx-share-alt',
     subItems: [
       {
         id: 131,
-        label: 'MENUITEMS.MULTILEVEL.LIST.LEVEL1.1',
+        label: 'Anime Mostrar',
         link: '/anime/mostrar',
         parentId: 130
       },
       {
         id: 132,
-        label: 'MENUITEMS.MULTILEVEL.LIST.LEVEL1.1',
+        label: 'Anime Listar',
         link: '/anime/listar',
+        parentId: 130
+      },
+      {
+        id: 133,
+        label: 'Empleados',
+        link: '/empleado',
+        parentId: 130
+      },
+      {
+        id: 134,
+        label: '📚 Biblioteca',
+        link: '/bibliotecas',
         parentId: 130
       },
 
