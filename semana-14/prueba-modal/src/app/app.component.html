@@ -1,0 +1,26 @@
+<div class="container">
+  <button (click)="openModal()">Agregar ✔ </button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listaPosts">
+        <td>{{item.id}}</td>
+        <td>{{item.title}}</td>
+        <td><button (click)="openModal2(item)">Editar</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-container *ngIf="modalSwitch">
+    <app-modal></app-modal>
+  </ng-container>
+
+</div>
+<!-- <router-outlet></router-outlet> -->

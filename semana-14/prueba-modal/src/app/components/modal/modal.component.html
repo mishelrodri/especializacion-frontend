@@ -1,0 +1,10 @@
+<div class="modal">
+
+  <div class="modal_body">
+    <button (click)="closeModal()">❌</button>
+    <ng-container *ngIf="post">
+      <p>{{post.title}}</p>
+    </ng-container>
+  </div>
+
+</div>
