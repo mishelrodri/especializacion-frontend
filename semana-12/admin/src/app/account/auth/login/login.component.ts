@@ -20,6 +20,8 @@ import { environment } from '../../../../environments/environment';
  */
 export class LoginComponent implements OnInit {
 
+  click: boolean = false;
+
   loginForm: FormGroup;
   submitted = false;
   error = '';
@@ -78,4 +80,15 @@ export class LoginComponent implements OnInit {
       }
     }
   }
+
+
+  cambiarType() {
+    this.click = !this.click;
+    // if(this.click){
+    //   this.type="text"
+    // }else{
+    //   this.type="password"
+    // }
+  }
+
 }
