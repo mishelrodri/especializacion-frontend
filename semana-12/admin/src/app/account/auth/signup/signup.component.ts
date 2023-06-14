@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { AuthenticationService } from '../../../core/services/auth.service';
@@ -31,8 +31,26 @@ export class SignupComponent implements OnInit {
       username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
+      repassword: ['', [Validators.required, this.passwordMatchValidator.bind(this)]],
     });
   }
+
+
+  validatePassword() {
+    return this.signupForm.get('password').value === this.signupForm.get('repassword').value;
+  }
+
+  passwordMatchValidator(control: AbstractControl): { [key: string]: any } | null {
+    const password = control.get('password')?.value;
+    const repassword = control.get('repassword')?.value;
+
+    if (password !== repassword) {
+      return { 'passwordMismatch': true };
+    }
+
+    return null;
+  }
+
 
   // convenience getter for easy access to form fields
   get f() { return this.signupForm.controls; }
@@ -73,4 +91,13 @@ export class SignupComponent implements OnInit {
       }
     }
   }
+
+
+  onSignUp() {
+    this.submitted = true;
+    console.log(this.validatePassword())
+
+
+  }
+
 }

@@ -28,7 +28,7 @@
             </div>
             <div class="p-2">
 
-              <form class="needs-validation" name="signupForm" [formGroup]="signupForm" (ngSubmit)="onSubmit()"
+              <form class="needs-validation" name="signupForm" [formGroup]="signupForm" (ngSubmit)="onSignUp()"
                 novalidate>
 
                 <ngb-alert type="success" *ngIf="successmsg" [dismissible]="false">Registeration successfull.
@@ -68,6 +68,20 @@
 
                   <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                     <div *ngIf="f.password.errors.required">Password is required</div>
+                  </div>
+                </div>
+
+
+                <div class="mb-3">
+                  <label for="repassword" class="form-label">Confirm Password</label>
+
+                  <input type="repassword" formControlName="repassword" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.repassword.errors }" id="repassword"
+                    placeholder="repassword" />
+
+                  <div *ngIf="submitted && f.repassword.errors" class="invalid-feedback">
+                    <div *ngIf="f.repassword.errors.required">repassword is required</div>
+                    <div *ngIf="signupForm.get('repassword')?.hasError('passwordMismatch')">Passwords do not match</div>
                   </div>
                 </div>
 
