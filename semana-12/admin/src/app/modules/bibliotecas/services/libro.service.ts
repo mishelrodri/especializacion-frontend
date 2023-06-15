@@ -6,7 +6,7 @@ import { Libro } from "../models/libro.model";
   providedIn: "root",
 })
 export class LibroService {
-  url = "http://localhost:8080/api/libro";
+  url = "http://localhost:8080/api/libros";
   constructor(private http: HttpClient) {}
 
   agregarLibro(librito: Libro) {

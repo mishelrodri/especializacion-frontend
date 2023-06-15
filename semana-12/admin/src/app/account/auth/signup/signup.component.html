@@ -28,23 +28,25 @@
             </div>
             <div class="p-2">
 
-              <form class="needs-validation" name="signupForm" [formGroup]="signupForm" (ngSubmit)="onSignUp()"
+              <form class="needs-validation" name="signupForm" [formGroup]="signupForm" (ngSubmit)="crearUsuario()"
                 novalidate>
 
-                <ngb-alert type="success" *ngIf="successmsg" [dismissible]="false">Registeration successfull.
+                <!-- <ngb-alert type="success" *ngIf="successmsg" [dismissible]="false">Registeration successfull.
                 </ngb-alert>
 
-                <ngb-alert type="danger" *ngIf="error" [dismissible]="false">{{ error }}</ngb-alert>
+                <ngb-alert type="danger" *ngIf="error" [dismissible]="false">{{ error }}</ngb-alert> -->
 
                 <div class="mb-3">
                   <label for="username" class="form-label">Username</label>
 
-                  <input type="text" formControlName="username" class="form-control"
-                    [ngClass]="{ 'is-invalid': submitted && f.username.errors }" id="username"
+                  <input type="text" formControlName="nombre" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }" id="username"
                     placeholder="Enter username" />
 
-                  <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-                    <div *ngIf="f.username.errors.required">Userame is required</div>
+                  <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+                    <div *ngIf="f.nombre?.errors?.required">Requiere un nombre</div>
+                    <div *ngIf="f.nombre?.errors?.pattern">Nombre no válido</div>
+                    <div *ngIf="f.nombre?.errors?.minLength">Tamaño minimo {{f.nombre?.errors?.minLength?.requiredLength}}</div>
                   </div>
                 </div>
 
@@ -55,8 +57,8 @@
                     [ngClass]="{ 'is-invalid': submitted && f.email.errors }" id="email" placeholder="Email" />
 
                   <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                    <div *ngIf="f.email.errors.required">Email is required</div>
-                    <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                   <div *ngIf="f.email.errors.required">Requiere un Email</div>
+                    <div *ngIf="f.email.errors.email">Correo no valido</div>
                   </div>
                 </div>
 
@@ -64,10 +66,12 @@
                   <label for="password" class="form-label">Password</label>
 
                   <input type="password" formControlName="password" class="form-control"
-                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }" id="password" placeholder="Password" />
+                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }" id="password" name="password" placeholder="Password" />
 
                   <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                    <div *ngIf="f.password.errors.required">Password is required</div>
+                    <div *ngIf="f.password.errors.required">Requiere Clave</div>
+                    <div *ngIf="f.password.errors?.pattern">Requiere mayusculas, minusculas, numeros, caracteres especiales</div>
+                    <div *ngIf="f.password.errors?.minLength">Tamaño minimo {{f.password?.errors?.minLength.requiredLength}}</div>
                   </div>
                 </div>
 
@@ -80,8 +84,8 @@
                     placeholder="repassword" />
 
                   <div *ngIf="submitted && f.repassword.errors" class="invalid-feedback">
-                    <div *ngIf="f.repassword.errors.required">repassword is required</div>
-                    <div *ngIf="signupForm.get('repassword')?.hasError('passwordMismatch')">Passwords do not match</div>
+                    <div *ngIf="f.repassword.errors.required">Requiere Clave</div>
+                    <div *ngIf="f.repassword.errors?.noSonIguales">Requiere Claves iguales</div>
                   </div>
                 </div>
 

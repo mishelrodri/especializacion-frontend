@@ -8,6 +8,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 
 import { environment } from '../../../../environments/environment';
+import { UsuarioService } from '../../services/usuario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +23,7 @@ import { environment } from '../../../../environments/environment';
 export class LoginComponent implements OnInit {
 
   click: boolean = false;
-
+  storage:Storage= window.localStorage;
   loginForm: FormGroup;
   submitted = false;
   error = '';
@@ -32,7 +34,7 @@ export class LoginComponent implements OnInit {
 
   // tslint:disable-next-line: max-line-length
   constructor(private formBuilder: FormBuilder, private route: ActivatedRoute, private router: Router, private authenticationService: AuthenticationService,
-    private authFackservice: AuthfakeauthenticationService) { }
+    private authFackservice: AuthfakeauthenticationService, private usuarioService:UsuarioService) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -89,6 +91,35 @@ export class LoginComponent implements OnInit {
     // }else{
     //   this.type="password"
     // }
+  }
+
+
+  login(){
+    this.submitted=true;
+    if(this.loginForm.invalid){
+      return;
+    }
+
+    this.usuarioService.login(this.loginForm.value).subscribe(
+      (resp)=>{
+        if(this.loginForm.get('remember')?.value){
+          this.storage.setItem('email',this.loginForm.get('email')?.value)
+        }else{
+          this.storage.removeItem('email');
+        }
+
+        this.router.navigate(['/dashboard'])
+      },
+      (err)=>{
+        Swal.fire(
+          {
+            icon:'error',
+            title:''
+          }
+        )
+      }
+    )
+
   }
 
 }

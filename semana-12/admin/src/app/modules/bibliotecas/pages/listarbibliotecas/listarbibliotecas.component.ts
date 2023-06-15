@@ -212,10 +212,15 @@ export class ListarbibliotecasComponent implements OnInit {
   }
 
   editarLibro() {
+    console.log('Entre al editar');
+    console.log( this.libroSeleccionado.biblioteca);
+
+
     const nombre = this.formLibro.get("nombre").value;
-    this.libroSeleccionado = nombre;
+    this.libroSeleccionado.nombre = nombre;
     this.libroSeleccionado.biblioteca = this.bibliotecaSeleccionada;
     //aqui guardar
+
     this.libroService.editarLibro(this.libroSeleccionado).subscribe({
       next: (resp) => {
         if (resp) {
@@ -240,14 +245,17 @@ export class ListarbibliotecasComponent implements OnInit {
   }
 
   trasladarBiblioteca(biblioteca: Biblioteca) {
+    console.log('Entre a traladar');
+
     let librosACambiar: Libro[] = [];
     for (let x of biblioteca["libros"]) {
       let element = <HTMLInputElement>(
         document.getElementById(x["id"].toString())
       );
       if (element.checked) {
+
         let obj: Libro = new Libro(
-          x.nombre_libro,
+          x.nombre,
           this.cambiarBiblioteca,
           x.id
         );
