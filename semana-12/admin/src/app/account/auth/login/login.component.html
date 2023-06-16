@@ -27,7 +27,7 @@
               </a>
             </div>
             <div class="p-2">
-              <form class="form-horizontal" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <form class="form-horizontal" [formGroup]="loginForm" (ngSubmit)="login()">
 
                 <ngb-alert type="danger" *ngIf="error" [dismissible]="false">{{ error }}</ngb-alert>
 
@@ -37,7 +37,7 @@
                     [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
                   <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                     <div *ngIf="f.email.errors.required">Email is required</div>
-                    <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                    <div *ngIf="f.email.errors.pattern.email">Formato de correo no valido</div>
                   </div>
                 </div>
 
@@ -52,12 +52,17 @@
                         class="mdi mdi-eye-outline"></i></button>
                     <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                       <span *ngIf="f.password.errors.required">Password is required</span>
+                      <span *ngIf="f.password.errors.minlength">Tamaño minimo
+                        {{f.password.errors.minlength?.requiredLength}}</span>
+                      <span *ngIf="f.password.errors?.pattern">Requiere mayusculas, minusculas , numero y caracteres
+                        especiales</span>
+
                     </div>
                   </div>
                 </div>
 
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="remember-check">
+                  <input formControlName="remember" class="form-check-input" type="checkbox" id="remember-check">
                   <label class="form-check-label" for="remember-check">
                     Remember me
                   </label>

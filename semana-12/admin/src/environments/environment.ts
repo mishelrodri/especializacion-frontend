@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   defaultauth: 'fackbackend',
+  baseUrl: 'https://nodejsclusters-130234-0.cloudclusters.net/api',
   firebaseConfig: {
     apiKey: '',
     authDomain: '',

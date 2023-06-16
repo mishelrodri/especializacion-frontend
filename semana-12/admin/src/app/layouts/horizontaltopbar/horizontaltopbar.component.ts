@@ -12,6 +12,7 @@ import { DOCUMENT } from '@angular/common';
 import { MENU } from './menu';
 import { MenuItem } from './menu.model';
 import { environment } from '../../../environments/environment';
+import { UsuarioService } from 'src/app/account/services/usuario.service';
 
 @Component({
   selector: 'app-horizontaltopbar',
@@ -41,7 +42,7 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
   ];
 
   // tslint:disable-next-line: max-line-length
-  constructor(@Inject(DOCUMENT) private document: any, private router: Router, private eventService: EventService, private authService: AuthenticationService,
+  constructor(@Inject(DOCUMENT) private document: any, private userService: UsuarioService, private router: Router, private eventService: EventService, private authService: AuthenticationService,
     private authFackservice: AuthfakeauthenticationService,
     public languageService: LanguageService,
     // tslint:disable-next-line: variable-name
@@ -79,12 +80,8 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit {
    * Logout the user
    */
   logout() {
-    if (environment.defaultauth === 'firebase') {
-      this.authService.logout();
-    } else {
-      this.authFackservice.logout();
-    }
-    this.router.navigate(['/account/login']);
+    this.userService.logout();
+    // this.router.navigate(['/account/login']);
   }
 
   /**
