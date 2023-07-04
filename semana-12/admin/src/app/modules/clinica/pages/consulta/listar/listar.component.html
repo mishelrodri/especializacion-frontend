@@ -1,0 +1,46 @@
+<h2>CONSULTAS POR ESPECIALIDAD</h2>
+<div class="card">
+
+  <div class="card-body">
+    <h5 class="card-title">Especialidad</h5>
+    Oftalmologia
+    <hr>
+    Pediatra
+    <hr>
+    Ginecologa
+    <hr>
+    <div class="d-flex justify-content-center align-items-center gap-3">
+      <button (click)="descargarPdf()" type="button" class="btn btn-outline-warning">Descargar</button>
+      <button (click)="generarConsultaPdf()" type="button" class="btn btn-outline-info">Ver PDF</button>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <div class="card-title">Detalle</div>
+    <div class="d-flex justify-content-start align-items-center gap-3">
+      <button (click)="crearPdf()" type="button" class="btn btn-outline-info">Generar PDF</button>
+      <button (click)="pdfMake()" type="button" class="btn btn-outline-info">PDF Make</button>
+    </div>
+    <h4>Consultas:</h4>
+    <table class="table" id="htmlData">
+      <thead>
+        <tr>
+          <th scope="col">Paciente</th>
+          <th scope="col">Medico</th>
+          <th scope="col">Especialidad</th>
+          <th scope="col">Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let consulta of listConsultas">
+          <th>{{consulta.paciente.nombrePaciente}}</th>
+          <td>{{consulta.medico.nombreMedico}}</td>
+          <td>{{consulta.especialidad.nombreEspeciadad}}</td>
+          <td>{{consulta.horaConsulta}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

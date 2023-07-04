@@ -853,6 +853,12 @@ export const MENU: MenuItem[] = [
         link: '/bibliotecas',
         parentId: 130
       },
+      {
+        id: 135,
+        label: 'Clinica',
+        link: '/clinica',
+        parentId: 130
+      },
 
     ]
   }
