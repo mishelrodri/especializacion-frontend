@@ -859,6 +859,18 @@ export const MENU: MenuItem[] = [
         link: '/clinica',
         parentId: 130
       },
+      {
+        id: 136,
+        label: 'Base 64',
+        link: '/excel/imagen',
+        parentId: 130
+      },
+      {
+        id: 137,
+        label: 'Export Excel',
+        link: '/excel/export',
+        parentId: 130
+      },
 
     ]
   }

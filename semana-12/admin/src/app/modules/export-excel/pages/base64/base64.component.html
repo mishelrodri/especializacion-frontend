@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-body">
+    <div class="card-title">
+      Convierte tu imagen a base64
+    </div>
+    <div class="input-group">
+      <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddnon04" aria-label="Upload" (change)="preVisualizarImagen($event)">
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div *ngIf="myImage" class="text-center">
+          <img class="image" [src]="myImage"  width="200px" height="200px">
+        </div>
+      </div>
+
+      <div class="col-md-8">
+        <textarea class="textarea" [(ngModel)]="codigoBase64"  id="" cols="30" rows="10"></textarea>
+      </div>
+    </div>
+
+<div class="d-flex justify-content-start gap-2">
+
+  <button (click)="exportExcelEndpoint()" class="btn btn-success">Exportar a excel</button>
+
+  <button (click)="download()" class="btn btn-danger">Exportar a makeExcel</button>
+
+</div>
+
+  </div>
+
+
+</div>

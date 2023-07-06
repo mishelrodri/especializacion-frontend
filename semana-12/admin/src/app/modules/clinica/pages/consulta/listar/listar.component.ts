@@ -10,10 +10,14 @@ import html2canvas from 'html2canvas';
 })
 export class ListarComponent implements OnInit {
 
+  pdfSrc: string = '';
+  pdfSrc2: string = '';
   constructor(private clinicaService: ConsultaService) { }
 
   ngOnInit(): void {
     this.clinicaService.getConsultas();
+    this.visualizarPdf1();
+    this.visualizarPdf2();
   }
 
   get listConsultas() {
@@ -34,6 +38,22 @@ export class ListarComponent implements OnInit {
       const file = new Blob([resp], { type: 'application/pdf' })
       const fileUrl = URL.createObjectURL(file);
       window.open(fileUrl);
+    })
+  }
+
+  visualizarPdf1() {
+    this.clinicaService.visualizarPdf('pdf-pastel').subscribe((resp: Blob) => {
+      const file = new Blob([resp], { type: 'application/pdf' });
+      const fileUrl = URL.createObjectURL(file);
+      this.pdfSrc = fileUrl;
+    })
+  }
+
+  visualizarPdf2() {
+    this.clinicaService.visualizarPdf('pdf-sencilla').subscribe((resp: Blob) => {
+      const file = new Blob([resp], { type: 'application/pdf' });
+      const fileUrl = URL.createObjectURL(file);
+      this.pdfSrc2 = fileUrl;
     })
   }
 
@@ -60,7 +80,9 @@ export class ListarComponent implements OnInit {
 
   }
   pdfMake() {
-
+    this.clinicaService.generarPdfMake('CREATED BY MISHEL', this.listConsultas);
   }
-
+  pdfMake2() {
+    this.clinicaService.generarPdfMake2('CREATED BY MISHEL', this.listConsultas);
+  }
 }
