@@ -19,6 +19,7 @@ export class Base64Component implements OnInit {
   constructor(private consultaService: ConsultaService, private excelService: ExcelService) { }
 
   ngOnInit(): void {
+    this.consultaService.getCancionesTaylor();
   }
 
   preVisualizarImagen($event: any) {
@@ -67,7 +68,7 @@ export class Base64Component implements OnInit {
 
   download(): void {
     this.consultaService.getConsultaExportporExcel().subscribe((response: IConsultaExcelTabla) => {
-      this.excelService.dowloadExcel(response);
+      this.excelService.dowloadExcel(response, this.consultaService.cancionesTaylor);
     })
   }
 

@@ -5,6 +5,8 @@ import { LOGO } from '../constants/logo';
 import { IConsulta } from '../../clinica/interfaces/consulta.interface';
 import { IConsultaExcelTabla, ITablaConsulta } from '../interfaces/excel.interface';
 import { Row } from 'ng2-smart-table/lib/lib/data-set/row';
+import { TAYLOR } from '../constants/taylor.logo';
+import { Taylor } from '../interfaces/taylor.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +15,12 @@ export class ExcelService {
 
   private workBook!: Workbook;
 
-  async dowloadExcel(dataExcel: IConsultaExcelTabla) {
+  async dowloadExcel(dataExcel: IConsultaExcelTabla, dataTaylor: Taylor[]) {
     this.workBook = new Workbook();
     this.workBook.creator = 'cursoAngular';
     // this.workBook.addWorksheet('Consultas');
     await this.crearTablaConsulta(dataExcel.tablaConsulta);
+    await this.taylorSwift(dataTaylor);
     this.workBook.xlsx.writeBuffer().then((data) => {
       const blob = new Blob([data]);
       fs(blob, 'consulta.xlsx')
@@ -151,6 +154,139 @@ export class ExcelService {
       row.height = 55;
     }
 
+    //! =============== TAREA EXCEL =====================
+
+
+  }
+
+  //! =============== TAREA EXCEL =====================
+  private async taylorSwift(dataTaylor: Taylor[]) {
+    const sheet = this.workBook.addWorksheet('Taylor Swift');
+
+    sheet.getColumn("B").width = 5;
+    sheet.getColumn("C").width = 40;
+    sheet.getColumn("D").width = 10;
+    sheet.getColumn("E").width = 30;
+    sheet.getColumn("F").width = 10;
+    sheet.getColumn("G").width = 30;
+
+    sheet.columns.forEach((column) => {
+      column.alignment = { vertical: 'middle', wrapText: true }
+    })
+
+    const logoId = this.workBook.addImage({
+      base64: TAYLOR,
+      extension: 'png'
+    })
+
+    const position: ImagePosition = {
+      tl: { col: 1.4, row: 1.2 },
+      ext: { width: 128, height: 128 }
+    }
+
+    sheet.addImage(logoId, position)
+    sheet.mergeCells('D5', 'G5')
+    const titulo = sheet.getCell('D5');
+    titulo.value = 'Canciones de Taylor Swift'
+    titulo.style.font = {
+      bold: true,
+      size: 25,
+      name: 'Segoe Script',
+      underline: 'none',
+      color: {
+        argb: 'A498BF'
+      }
+
+    }
+
+    titulo.alignment = {
+      vertical: 'middle',
+      horizontal: 'center',
+      wrapText: false
+    }
+
+    const date = new Date();
+    const fechaFormato = `${date.getDate()} / ${date.getMonth() + 1} / ${date.getFullYear()}`
+    const celdaFecha = sheet.getCell('F6');
+    celdaFecha.value = fechaFormato;
+    celdaFecha.font = {
+      name: 'Cascadia Mono',
+      size: 12,
+      bold: true
+    }
+
+    celdaFecha.alignment = {
+      vertical: 'middle',
+      horizontal: 'center',
+      wrapText: false
+    }
+
+    const headerR = sheet.getRow(10);
+    headerR.values = [
+      ' ',
+      'N',
+      'Titulo',
+      'Año',
+      'Album',
+      'Duracion',
+      'Genero'
+    ]
+
+    headerR.alignment = { vertical: 'middle', horizontal: 'center', wrapText: false };
+
+    ['B', 'C', 'D', 'E', 'F', 'G'].forEach((columnKey) => {
+      sheet.getCell(`${columnKey}10`).font = {
+        bold: true,
+        color: { argb: 'FFFFFF' },
+        size: 12,
+        italic: true
+      };
+      sheet.getCell(`${columnKey}10`).fill = {
+        type: 'pattern',
+        pattern: 'solid',
+        fgColor: { argb: 'A498BF' },
+        bgColor: { argb: '' }
+      };
+
+
+
+    });
+
+    const filasInsertar = sheet.getRows(11, dataTaylor.length)!;
+
+    for (let index = 0; index < filasInsertar.length; index++) {
+      const itemData = dataTaylor[index];
+      const row = filasInsertar[index];
+      row.values = [
+        '',
+        `${index + 1}`,
+        `${itemData.titulo}`,
+        `${itemData.anio}`,
+        `${itemData.album}`,
+        `${itemData.duracion}`,
+        `${itemData.genero}`
+      ]
+
+      let fila = 11 + index;
+      ['B', 'C', 'D', 'E', 'F', 'G'].forEach((columnKey) => {
+        sheet.getCell(`${columnKey}${fila}`).border = {
+          top: { style: 'thin', color: { argb: '00000000' } },
+          left: { style: 'thin', color: { argb: '00000000' } },
+          bottom: { style: 'thin', color: { argb: '00000000' } },
+          right: { style: 'thin', color: { argb: '00000000' } },
+        }
+      })
+
+      // const idImage = await this.getImage(`${itemData.portadaUrl}`);
+      // sheet.addImage(idImage,
+      //   {
+      //     tl: { col: 7, row: row.number - 1 },
+      //     ext: { width: 50, height: 50 }
+      //   })
+      // row.height = 55;
+    }
+
+
 
 
   }
@@ -163,6 +299,9 @@ export class ExcelService {
     })
     return image;
   }
+
+
+
 
 
 }
