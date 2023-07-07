@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, Subscriber } from 'rxjs';
 import { ConsultaService } from '../../services/consulta.service';
 import { ExcelService } from '../../services/excel.service';
+import { IConsultaExcelTabla } from '../../interfaces/excel.interface';
 
 @Component({
   selector: 'app-base64',
@@ -10,62 +11,64 @@ import { ExcelService } from '../../services/excel.service';
 })
 export class Base64Component implements OnInit {
 
- myImage:string='';
- codigoBase64:string='';
+  myImage: string = '';
+  codigoBase64: string = '';
 
 
 
-  constructor(private consultaService:ConsultaService, private excelService:ExcelService) { }
+  constructor(private consultaService: ConsultaService, private excelService: ExcelService) { }
 
   ngOnInit(): void {
   }
 
-  preVisualizarImagen($event:any){
-    const target= $event.target as HTMLInputElement;
+  preVisualizarImagen($event: any) {
+    const target = $event.target as HTMLInputElement;
 
-    const file: File=(target.files as FileList)[0];
+    const file: File = (target.files as FileList)[0];
 
-    const observable= new Observable((subcribir:Subscriber<any>)=>{
-      const fileReader= new FileReader();
+    const observable = new Observable((subcribir: Subscriber<any>) => {
+      const fileReader = new FileReader();
       fileReader.readAsDataURL(file);
-      fileReader.onload=()=>{
+      fileReader.onload = () => {
         subcribir.next(fileReader.result);
         subcribir.complete();
       }
 
-      fileReader.onerror=(error)=>{
+      fileReader.onerror = (error) => {
         subcribir.error(error);
         subcribir.complete();
       }
     });
 
-    observable.subscribe((resp)=>{
-      this.myImage=resp;
-this.codigoBase64=resp;
+    observable.subscribe((resp) => {
+      this.myImage = resp;
+      this.codigoBase64 = resp;
     })
 
   }
 
-  subirImagen(){
+  subirImagen() {
 
   }
 
-  exportExcelEndpoint(){
-    this.consultaService.exportExcel().subscribe((data:any)=>{
+  exportExcelEndpoint() {
+    this.consultaService.exportExcel().subscribe((data: any) => {
       let file = new Blob([data],
-      {
-        type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-      });
-      let fileUrl= URL.createObjectURL(file);
-      const link= document.createElement('a');
-      link.download='paciente.xls';
-      link.href= fileUrl;
+        {
+          type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        });
+      let fileUrl = URL.createObjectURL(file);
+      const link = document.createElement('a');
+      link.download = 'paciente.xls';
+      link.href = fileUrl;
       link.click();
     })
   }
 
-  download():void{
-      this.excelService.dowloadExcel();
+  download(): void {
+    this.consultaService.getConsultaExportporExcel().subscribe((response: IConsultaExcelTabla) => {
+      this.excelService.dowloadExcel(response);
+    })
   }
 
 }
