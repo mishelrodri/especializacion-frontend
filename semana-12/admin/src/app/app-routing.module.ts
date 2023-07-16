@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'pages', loadChildren: () => import('./extrapages/extrapages.module').then(m => m.ExtrapagesModule), canActivate: [AuthGuard], canLoad: [AuthGuard] },
   { path: 'clinica', component: LayoutComponent, loadChildren: () => import('./modules/clinica/clinica.module').then(m => m.ClinicaModule), canActivate: [AuthGuard], canLoad: [AuthGuard] },
   { path: 'excel', component: LayoutComponent, loadChildren: () => import('./modules/export-excel/export-excel.module').then(m => m.ExportExcelModule), canActivate: [AuthGuard], canLoad: [AuthGuard] },
+  { path: 'imagenes', component: LayoutComponent, loadChildren: () => import('./modules/subir-archivos/subir-archivos.module').then(m => m.SubirArchivosModule), canActivate: [AuthGuard], canLoad: [AuthGuard] },
   { path: 'anime', component: LayoutComponent, loadChildren: () => import('./modules/anime/anime.module').then(m => m.AnimeModule), canActivate: [AuthGuard], canLoad: [AuthGuard] },
   { path: 'empleados', component: LayoutComponent, loadChildren: () => import('./modules/empleado/empleado.module').then(m => m.EmpleadoModule), canActivate: [AuthGuard], canLoad: [AuthGuard] },
   { path: 'bibliotecas', component: LayoutComponent, loadChildren: () => import('./modules/bibliotecas/bibliotecas.module').then(m => m.BibliotecasModule), canActivate: [AuthGuard], canLoad: [AuthGuard] },

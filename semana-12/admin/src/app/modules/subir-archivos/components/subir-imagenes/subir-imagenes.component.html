@@ -1,0 +1,40 @@
+
+
+<input class="file-upload" type="file" (change)="onFileSelected($event)" #fileUpload/>
+
+<div class="file-upload">
+  <button class="btn btn-primary mt-2" (click)="subir()"> Subir</button>
+</div>
+
+<h1>Subir varios archivos</h1>
+
+<div class="form-group">
+  <label for="file">File</label>
+  <input type="file" type="file" multiple class="form-control" (change)="onFileChange($event)">
+
+  <div class="file-upload mt-2">
+    <button class="btn btn-primary" (click)="multiple()">Multiple</button>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-title">Dropzone</div>
+        <p class="card-title-desc">DropzoneJS is an open source library
+          that provides drag’n’drop file uploads with image previews.
+        </p>
+        <div>
+          <form>
+            <dropzone class="dropzone" ></dropzone>
+          </form>
+        </div>
+        <!-- <div class="text-center mt-4">
+          <button type="button" class="btn btn-primary" (click)="multiple()">Send Files</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>

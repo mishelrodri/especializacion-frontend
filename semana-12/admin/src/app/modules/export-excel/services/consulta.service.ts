@@ -45,7 +45,7 @@ export class ConsultaService {
   getCancionesTaylor() {
     return this.http.get('https://api.jsonbin.io/v3/b/6425dc3aace6f33a2200fa6a', {
       headers: {
-        'X-MASTER-KEY': '',
+        'X-MASTER-KEY': '$2b$10$QpJOAUnB12xF41/.jOMtJOwoH5ruJFeuT1jdCQjlFK0jXDSBq78yi',
       },
     }).subscribe((resp: any) => {
       this.cancionesTaylor = resp.record.cancionesTaylorSwift;

@@ -169,6 +169,7 @@ export class ExcelService {
     sheet.getColumn("E").width = 30;
     sheet.getColumn("F").width = 10;
     sheet.getColumn("G").width = 30;
+    sheet.getColumn("H").width = 8;
 
     sheet.columns.forEach((column) => {
       column.alignment = { vertical: 'middle', wrapText: true }
@@ -229,12 +230,13 @@ export class ExcelService {
       'Año',
       'Album',
       'Duracion',
-      'Genero'
+      'Genero',
+      'Portada',
     ]
 
     headerR.alignment = { vertical: 'middle', horizontal: 'center', wrapText: false };
 
-    ['B', 'C', 'D', 'E', 'F', 'G'].forEach((columnKey) => {
+    ['B', 'C', 'D', 'E', 'F', 'G','H'].forEach((columnKey) => {
       sheet.getCell(`${columnKey}10`).font = {
         bold: true,
         color: { argb: 'FFFFFF' },
@@ -268,7 +270,7 @@ export class ExcelService {
       ]
 
       let fila = 11 + index;
-      ['B', 'C', 'D', 'E', 'F', 'G'].forEach((columnKey) => {
+      ['B', 'C', 'D', 'E', 'F', 'G','H'].forEach((columnKey) => {
         sheet.getCell(`${columnKey}${fila}`).border = {
           top: { style: 'thin', color: { argb: '00000000' } },
           left: { style: 'thin', color: { argb: '00000000' } },
@@ -277,13 +279,13 @@ export class ExcelService {
         }
       })
 
-      // const idImage = await this.getImage(`${itemData.portadaUrl}`);
-      // sheet.addImage(idImage,
-      //   {
-      //     tl: { col: 7, row: row.number - 1 },
-      //     ext: { width: 50, height: 50 }
-      //   })
-      // row.height = 55;
+      const idImage = await this.getImage(`${itemData.portadaUrl}`);
+      sheet.addImage(idImage,
+        {
+          tl: { col: 7, row: row.number - 1 },
+          ext: { width: 50, height: 50 }
+        })
+      row.height = 55;
     }
 
 
