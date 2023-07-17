@@ -8,18 +8,19 @@ import { Page404Component } from './extrapages/page404/page404.component';
 import { IsActiveGuard } from './core/guards/is-active.guard';
 
 const routes: Routes = [
-  { path: 'account', loadChildren: () => import('./account/account.module').then(m => m.AccountModule), canActivate: [IsActiveGuard] },
+  { path: 'account', loadChildren: () => import('./account/account.module').then(m => m.AccountModule) },
   // tslint:disable-next-line: max-line-length
-  { path: '', component: LayoutComponent, loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule), canActivate: [AuthGuard], canLoad: [AuthGuard] },
-  { path: 'pages', loadChildren: () => import('./extrapages/extrapages.module').then(m => m.ExtrapagesModule), canActivate: [AuthGuard], canLoad: [AuthGuard] },
-  { path: 'clinica', component: LayoutComponent, loadChildren: () => import('./modules/clinica/clinica.module').then(m => m.ClinicaModule), canActivate: [AuthGuard], canLoad: [AuthGuard] },
-  { path: 'excel', component: LayoutComponent, loadChildren: () => import('./modules/export-excel/export-excel.module').then(m => m.ExportExcelModule), canActivate: [AuthGuard], canLoad: [AuthGuard] },
-  { path: 'imagenes', component: LayoutComponent, loadChildren: () => import('./modules/subir-archivos/subir-archivos.module').then(m => m.SubirArchivosModule), canActivate: [AuthGuard], canLoad: [AuthGuard] },
-  { path: 'anime', component: LayoutComponent, loadChildren: () => import('./modules/anime/anime.module').then(m => m.AnimeModule), canActivate: [AuthGuard], canLoad: [AuthGuard] },
-  { path: 'empleados', component: LayoutComponent, loadChildren: () => import('./modules/empleado/empleado.module').then(m => m.EmpleadoModule), canActivate: [AuthGuard], canLoad: [AuthGuard] },
-  { path: 'bibliotecas', component: LayoutComponent, loadChildren: () => import('./modules/bibliotecas/bibliotecas.module').then(m => m.BibliotecasModule), canActivate: [AuthGuard], canLoad: [AuthGuard] },
-  { path: 'libro', component: LayoutComponent, loadChildren: () => import('./modules/libro/libro.module').then(m => m.LibroModule), canActivate: [AuthGuard], canLoad: [AuthGuard] },
-  { path: 'crypto-ico-landing', component: CyptolandingComponent, canActivate: [AuthGuard], canLoad: [AuthGuard] },
+  { path: '', component: LayoutComponent, loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule) },
+  { path: 'pages', loadChildren: () => import('./extrapages/extrapages.module').then(m => m.ExtrapagesModule) },
+  { path: 'clinica', component: LayoutComponent, loadChildren: () => import('./modules/clinica/clinica.module').then(m => m.ClinicaModule) },
+  { path: 'excel', component: LayoutComponent, loadChildren: () => import('./modules/export-excel/export-excel.module').then(m => m.ExportExcelModule) },
+  { path: 'imagenes', component: LayoutComponent, loadChildren: () => import('./modules/subir-archivos/subir-archivos.module').then(m => m.SubirArchivosModule) },
+  { path: 'full-calendar', component: LayoutComponent, loadChildren: () => import('./modules/calendar/calendar.module').then(m => m.CalendarModule) },
+  { path: 'anime', component: LayoutComponent, loadChildren: () => import('./modules/anime/anime.module').then(m => m.AnimeModule) },
+  { path: 'empleados', component: LayoutComponent, loadChildren: () => import('./modules/empleado/empleado.module').then(m => m.EmpleadoModule) },
+  { path: 'bibliotecas', component: LayoutComponent, loadChildren: () => import('./modules/bibliotecas/bibliotecas.module').then(m => m.BibliotecasModule) },
+  { path: 'libro', component: LayoutComponent, loadChildren: () => import('./modules/libro/libro.module').then(m => m.LibroModule) },
+  { path: 'crypto-ico-landing', component: CyptolandingComponent },
   { path: '**', component: Page404Component },
 ];
 

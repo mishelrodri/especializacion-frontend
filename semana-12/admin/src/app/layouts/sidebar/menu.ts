@@ -871,6 +871,12 @@ export const MENU: MenuItem[] = [
         link: '/excel/export',
         parentId: 130
       },
+      {
+        id: 138,
+        label: 'Calendario',
+        link: '/full-calendar',
+        parentId: 130
+      },
 
     ]
   }
