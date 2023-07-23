@@ -5,12 +5,14 @@ import { IConsulta } from '../../clinica/interfaces/consulta.interface';
 import { IConsultaExcelTabla, ITablaConsulta } from '../interfaces/excel.interface';
 import { map } from 'rxjs/operators';
 import { Taylor } from '../interfaces/taylor.interface';
+import { IDatos } from '../interfaces/IReadExcel.interface';
 @Injectable({
   providedIn: 'root'
 })
 export class ConsultaService {
   url: string = 'http://localhost:8080';
   cancionesTaylor: Taylor[];
+  medicoslist: IDatos[]=[];
   constructor(private http: HttpClient) { }
 
   exportExcel(): Observable<Blob> {
@@ -49,6 +51,21 @@ export class ConsultaService {
       },
     }).subscribe((resp: any) => {
       this.cancionesTaylor = resp.record.cancionesTaylorSwift;
+    })
+  }
+
+  //! medico Service
+
+  getMedicos(){
+     this.http.get<IDatos[]>('http://localhost:8080/medico').subscribe((resp)=>{
+    this.medicoslist=resp;
+     })
+  }
+
+  setMedico(medico:IDatos){
+    this.http.post('http://localhost:8080/medico',medico).subscribe((resp)=>{
+      this.getMedicos();
+
     })
   }
 

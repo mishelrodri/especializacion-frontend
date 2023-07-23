@@ -1,0 +1,63 @@
+<div class="container mt-5">
+
+
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title">Leer archivos Excel</div>
+          <div>
+            <input type="file" class="form-control" (change)="leerFile($event)">
+          </div>
+
+          <ng-container *ngIf="datos">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th >N</th>
+                  <th>Nombre Medico</th>
+                  <th>Apellido Medico</th>
+                  <th>jvpm</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr  *ngFor="let x of datos; let i=index;">
+                  <td>{{i+1}}</td>
+                  <td>{{x.nombreMedico}}</td>
+                  <td>{{x.apellidoMedico}}</td>
+                  <td>{{x.jvpm}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <button class="btn btn-warning" (click)="insertarRegistros()">Insertar Registros</button>
+          </ng-container>
+
+        </div>
+    </div>
+
+    <h3 style="color:red">Datos de la Base de datos</h3>
+    <div class="card">
+      <table class="table">
+        <thead>
+          <tr>
+
+            <th>Nombre Medico</th>
+            <th>Apellido Medico</th>
+            <th>jvpm</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  *ngFor="let x of listMedicos | paginate : { itemsPerPage: 10, currentPage: p  }">
+
+            <td>{{x.nombreMedico}}</td>
+            <td>{{x.apellidoMedico}}</td>
+            <td>{{x.jvpm}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="pagination pagination-rounded justify-content-end mb-2">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+
+
+
