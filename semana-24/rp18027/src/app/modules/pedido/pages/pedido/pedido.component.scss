@@ -1,0 +1,17 @@
+.height-custom {
+  min-height: calc(100vh - 140px);
+}
+
+.list-clientes {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.modal-title {
+  color: var(--bg-color);
+}
+
+.modal-body {
+  color: var(--bg-color);
+}
