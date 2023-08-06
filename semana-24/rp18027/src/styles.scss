@@ -22,3 +22,21 @@ body {
     font-size: 20px;
   }
 }
+
+ngb-pagination li a {
+  background-color: #35383b !important;
+  color: #fff !important;
+  border-color: unset !important;
+}
+
+ngb-pagination li a:focus {
+  box-shadow: unset !important;
+}
+
+ngb-pagination .page-item.active .page-link {
+  background-color: #f9b424 !important;
+  color: #fff !important;
+  :focus {
+    outline: none !important;
+  }
+}

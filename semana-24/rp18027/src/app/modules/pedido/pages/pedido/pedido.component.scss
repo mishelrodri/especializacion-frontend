@@ -1,6 +1,6 @@
-.height-custom {
-  min-height: calc(100vh - 140px);
-}
+// .height-custom {
+//   min-height: calc(100vh - 140px);
+// }
 
 .list-clientes {
   width: 100%;
@@ -14,4 +14,8 @@
 
 .modal-body {
   color: var(--bg-color);
+}
+
+.table-height {
+  min-height: 330px;
 }
