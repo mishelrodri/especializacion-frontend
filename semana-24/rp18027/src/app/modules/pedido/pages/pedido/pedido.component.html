@@ -3,11 +3,9 @@
     <h2><i class="bi bi-receipt"></i> Listado de Pedidos</h2>
     <button (click)="openModal(formularioPedidos)" class="btn btn-warning"><i class="bi bi-plus-circle"></i>
       Nuevo Pedido</button>
-    <button class="btn btn-danger" [disabled]="allPedidos.length==0" (click)="generatePDF()"><i
-        class="bi bi-filetype-pdf"></i> PDF</button>
-    <button class="btn btn-success" [disabled]="allPedidos.length==0" (click)="downloadExcel()"><i
+    <!-- <button class="btn btn-success" [disabled]="allPedidos.length==0" (click)="downloadExcel()"><i
         class="bi bi-file-earmark-spreadsheet"></i>
-      Excel</button>
+      Excel</button> -->
   </div>
 
   <p class="paragraph">Crea un nuevo pedido</p>
@@ -53,9 +51,17 @@
       (pageChange)="pageChange($event)" [(page)]="currentPage"></ngb-pagination>
   </div>
 
-  <canvas baseChart [type]="'pie'" [datasets]="pieChartDatasets" [labels]="pieChartLabels" [options]="pieChartOptions"
-    [plugins]="pieChartPlugins" [legend]="pieChartLegend">
-  </canvas>
+  <div *ngIf="datosGra" class="card card-grafica">
+    <div class="card-body">
+      <h4 class="text-center fw-bolder mt-2">Cantidad de pedidos por Cliente </h4>
+      <ng-select [(ngModel)]="tipoGrafica" class="select-grafica" placeholder="Seleccione un tipo">
+        <ng-option *ngFor="let tipo of tiposGrafica" [value]="tipo">{{tipo}}</ng-option>
+      </ng-select>
+      <div class="grafica-container">
+        <app-grafica [datos]="datosGra" [labels]="labels" [tipo]="tipoGrafica"></app-grafica>
+      </div>
+    </div>
+  </div>
 
 </div>
 

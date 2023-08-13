@@ -8,13 +8,16 @@ import { HeaderComponent } from './layout/header/header.component';
 import { SkeletonComponent } from './layout/skeleton/skeleton.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SkeletonComponent,
-    FooterComponent
+    FooterComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

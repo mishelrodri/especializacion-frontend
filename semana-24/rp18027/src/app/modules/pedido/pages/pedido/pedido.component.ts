@@ -4,17 +4,14 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgSelectConfig } from '@ng-select/ng-select';
 import { PedidoService } from '@pedido/services/pedido.service';
 import Swal from 'sweetalert2';
-//
-import { Img, PdfMakeWrapper, Table, Txt } from 'pdfmake-wrapper';
-import * as pdfFonts from "pdfmake/build/vfs_fonts";
+
 import { Pedido } from '@pedido/interfaces/IPedido.interface';
 //
 import { Workbook, ImagePosition } from 'exceljs';
 import * as fs from 'file-saver';
-//
-import { ChartOptions } from 'chart.js';
+import { ChartType } from 'chart.js';
 
-PdfMakeWrapper.setFonts(pdfFonts);
+
 @Component({
   selector: 'app-pedido',
   templateUrl: './pedido.component.html',
@@ -27,6 +24,11 @@ export class PedidoComponent implements OnInit {
   currentPage: number = 1;
   private workbook!: Workbook;
 
+
+
+  tiposGrafica=['line','bar','doughnut','pie','polarArea','radar']
+  tipoGrafica:ChartType='line';
+
   constructor(private modalService: NgbModal, private config: NgSelectConfig, private fb: FormBuilder, private pedidoService: PedidoService) {
     this.config.notFoundText = 'No se encontraron coincidencias';
   }
@@ -34,7 +36,10 @@ export class PedidoComponent implements OnInit {
     this.pedidoService.getPedidos();
     this.pedidoService.getClientes();
     this.pedidoService.getAllPedidos();
+    this.pedidoService.getConsulta();
     this.formularioPedido = this.iniciarFormulario();
+    console.log(this.pedidoService.datos);
+
   }
   iniciarFormulario() {
     return this.fb.group({
@@ -48,6 +53,17 @@ export class PedidoComponent implements OnInit {
 
   get isLoading() {
     return this.pedidoService.isLoading;
+  }
+  get listConsulta() {
+    return this.pedidoService.listConsulta;
+  }
+
+  get datosGra() {
+    return this.pedidoService.datos;
+  }
+
+  get labels() {
+    return this.pedidoService.labels;
   }
 
   get listPedidos() {
@@ -99,6 +115,7 @@ export class PedidoComponent implements OnInit {
         this.formularioPedido.get('estado')?.patchValue(estado ? true : false)
         this.pedidoService.editarPedido(idPedido, this.formularioPedido.value).subscribe(() => {
           this.pedidoService.getPedidos();
+          this.pedidoService.getConsulta();
           this.currentPage = 1;
 
           Swal.fire({
@@ -114,6 +131,7 @@ export class PedidoComponent implements OnInit {
         this.formularioPedido.get('estado')?.patchValue(true);
         this.pedidoService.crearPedido(this.formularioPedido.value).subscribe(() => {
           this.pedidoService.getPedidos();
+          this.pedidoService.getConsulta();
           this.currentPage = 1;
 
           Swal.fire({
@@ -150,6 +168,7 @@ export class PedidoComponent implements OnInit {
 
         this.pedidoService.eliminarPedido(idPedido).subscribe(() => {
           this.pedidoService.getPedidos();
+          this.pedidoService.getConsulta();
           this.currentPage = 1;
           Swal.fire(
             'Borrado!',
@@ -163,28 +182,6 @@ export class PedidoComponent implements OnInit {
     })
   }
 
-  async generatePDF() {
-    const pdf = new PdfMakeWrapper();
-    pdf.header(new Txt(`PARCIAL II`).alignment('right').italics().margin(10).end);
-    pdf.add(new Txt(`REPORTE DE CONSULTAS`).color('blue').fontSize(18).bold().alignment('center').end);
-    pdf.add(new Txt('').margin(15).end);
-    // pdf.add(await new Img('assets/images/users/avatar-1.jpg').height(50).width(50).absolutePosition(60,40).build());
-    pdf.add(new Txt('').margin(15).end);
-    pdf.add(new Txt('CONSULTAS:').margin(15).bold().decoration('underline').end);
-    pdf.add(new Txt('').margin(15).end);
-    pdf.add(new Table(
-      [['', 'Paciente', 'Medico', 'Especialidad', 'Fecha']]).alignment('center').widths([20, 200, 200, 130, 100]).fontSize(12).italics().bold().layout('lightHorizontalLines').end);
-    for (let x of this.allPedidos) {
-      pdf.add(new Table([
-        ['', '', ''], [`${x.fechaPedido}`, `${x.cliente.nombre}`, `${x.estado}`]
-      ]).widths([20, 200, 200, 130, 100]).fontSize(10).layout('lightHorizontalLines').end);
-    }
-    pdf.add(new Txt('').margin(20).end);
-    pdf.add(new Txt('F._______________').alignment('right').end);
-    pdf.footer(new Txt('' + new Date()).alignment('left').italics().margin(10).end);
-    pdf.pageOrientation("landscape");
-    pdf.create().open();
-  }
 
   async downloadExcel() {
     Swal.fire({
@@ -226,11 +223,6 @@ export class PedidoComponent implements OnInit {
     sheet.columns.forEach((column) => {
       column.alignment = { vertical: 'middle', wrapText: true }
     });
-
-    // const logoId = this.workbook.addImage({
-    //   base64:LOGO,
-    //   extension: 'png',
-    // })
 
     const position: ImagePosition = {
       tl: { col: 1.4, row: 1.2 },
@@ -327,31 +319,10 @@ export class PedidoComponent implements OnInit {
         }
       })
 
-
-      // const idImage = await this.getIdImage('../assets/images/profile-img.png');
-      // sheet.addImage(idImage,{
-      //   tl: {col:7,row: row.number - 1},
-      //   ext: {width:50,height:50},
-      // });
-
       row.height = 55;
     }
 
 
   }
-
-
-
-  // Pie
-  public pieChartOptions: ChartOptions<'pie'> = {
-    responsive: false,
-  };
-  public pieChartLabels = [['Download', 'Sales'], ['In', 'Store', 'Sales'], 'Mail Sales'];
-  public pieChartDatasets = [{
-    data: [300, 500, 100]
-  }];
-  public pieChartLegend = true;
-  public pieChartPlugins = [];
-
 
 }

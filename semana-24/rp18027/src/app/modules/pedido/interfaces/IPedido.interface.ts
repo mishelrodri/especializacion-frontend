@@ -40,3 +40,8 @@ export interface Cliente {
   dui: string;
   email: string;
 }
+
+export interface Consulta{
+  nombreCliente:string;
+  cantidad:number;
+}

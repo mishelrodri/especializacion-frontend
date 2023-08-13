@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SkeletonComponent } from './layout/skeleton/skeleton.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,9 @@ const routes: Routes = [
         loadChildren: () => import('@pedido/pedido.module').then(m => m.PedidoModule)
       },
     ]
+  },
+  {
+    path:'**', component:NotFoundComponent
   }
 ];
 

@@ -1,9 +1,11 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Cliente, Pedido, PedidoResponse } from '@pedido/interfaces/IPedido.interface';
+import { Cliente, Consulta, Pedido, PedidoResponse } from '@pedido/interfaces/IPedido.interface';
 import { environment } from '../../../../environments/environment';
 import { FormGroup } from '@angular/forms';
-
+interface IConsulta{
+  data:number[]
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -11,8 +13,15 @@ export class PedidoService {
   private http = inject(HttpClient);
   url = `${environment.ApiUrl}/pedido`;
   listPedidos: Pedido[] = [];
+  listConsulta: Consulta[] = [];
   listClientes: Cliente[] = [];
   isLoading = false;
+  arreglo:number[]=[];
+
+
+  datos: { data: number[] }[] = [{ data: [] }];
+
+
   pedidosResponse: PedidoResponse = {
     content: [],
     pageable: {
@@ -42,6 +51,8 @@ export class PedidoService {
     numberOfElements: 0,
   };
 
+  labels:any[]=[];
+
 
   getPedidosbyPage(page: number) {
     this.isLoading = false;
@@ -65,6 +76,23 @@ export class PedidoService {
     this.http.get<Pedido[]>(`${this.url}/all-pedidos`).subscribe((data) => {
       this.listPedidos = data;
       this.isLoading = true;
+    })
+
+  }
+
+  getConsulta() {
+    this.http.get<Consulta[]>(`${this.url}/consulta`).subscribe((data) => {
+      this.listConsulta = data;
+      this.datos= [{ data: [] }];
+      this.labels=[];
+      this.listConsulta.forEach((item)=>{
+        this.datos[0].data.push(item.cantidad)
+        this.labels.push(item.nombreCliente);
+      })
+
+      console.log(JSON.stringify(this.datos));
+
+
     })
 
   }
